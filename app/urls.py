@@ -1,3 +1,5 @@
 from django.urls import path, include
 
-urlpatterns = []
+urlpatterns = [
+    path('customers/', include('app.customers.urls')),
+]
