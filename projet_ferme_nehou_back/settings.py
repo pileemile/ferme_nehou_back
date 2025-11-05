@@ -55,7 +55,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders',
     'app',
-    'app.customers'
+    'app.customers.apps.CustomersConfig',
+    'app.rooms.apps.RoomsConfig'
 ]
 
 MIDDLEWARE = [
