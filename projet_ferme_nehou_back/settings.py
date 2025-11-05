@@ -56,7 +56,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'app',
     'app.customers.apps.CustomersConfig',
-    'app.rooms.apps.RoomsConfig'
+    'app.rooms.apps.RoomsConfig',
+    'app.activity.apps.ActivityConfig'
 ]
 
 MIDDLEWARE = [
