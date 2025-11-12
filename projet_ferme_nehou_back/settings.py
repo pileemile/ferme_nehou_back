@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'app.reservation.apps.ReservationConfig',
     'app.reservationActivity.apps.ReservationActivityConfig',
     'app.reviews.apps.ReviewsConfig',
+    'app.photo.apps.PhotoConfig'
 ]
 
 MIDDLEWARE = [
