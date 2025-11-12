@@ -4,14 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d8029c-d282-4b95-bfd1-eba5debcf98b" name="Changes" comment="add rooms">
-      <change afterPath="$PROJECT_DIR$/app/reservation-activity/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/reservation-activity/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/reservation-activity/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/reservation-activity/serializers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/reservation-activity/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/reservation-activity/views.py" afterDir="false" />
+    <list default="true" id="70d8029c-d282-4b95-bfd1-eba5debcf98b" name="Changes" comment="delete reservations_activity">
+      <change afterPath="$PROJECT_DIR$/app/reservationActivity/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/reservationActivity/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/reservationActivity/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/reservationActivity/serializers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/reservationActivity/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/reservationActivity/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ferme_nehou_back/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ferme_nehou_back/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +67,7 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "git-widget-placeholder": "features/reservation__activity",
+    "git-widget-placeholder": "features/reservationAtivity",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -186,7 +188,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762341408040</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="delete reservations_activity">
+      <option name="closed" value="true" />
+      <created>1762942051124</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1762942051124</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,6 +218,7 @@
     <MESSAGE value="cutomers" />
     <MESSAGE value="add customers" />
     <MESSAGE value="add rooms" />
-    <option name="LAST_COMMIT_MESSAGE" value="add rooms" />
+    <MESSAGE value="delete reservations_activity" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete reservations_activity" />
   </component>
 </project>
