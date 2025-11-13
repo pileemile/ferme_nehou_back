@@ -1,0 +1,130 @@
+[
+    {
+        "model": "rooms.amenitymodel",
+        "pk": 1,
+        "fields": {
+            "name": "Wi-Fi",
+            "icon": "wifi"
+        }
+    },
+    {
+        "model": "rooms.amenitymodel",
+        "pk": 2,
+        "fields": {
+            "name": "Baignoire",
+            "icon": "bathtub"
+        }
+    },
+    {
+        "model": "rooms.amenitymodel",
+        "pk": 3,
+        "fields": {
+            "name": "Machine à café",
+            "icon": "coffee"
+        }
+    },
+    {
+        "model": "rooms.amenitymodel",
+        "pk": 4,
+        "fields": {
+            "name": "Vue sur la mer",
+            "icon": "waves"
+        }
+    },
+    {
+        "model": "rooms.amenitymodel",
+        "pk": 5,
+        "fields": {
+            "name": "Réfrigérateur",
+            "icon": "kitchen"
+        }
+    },
+    {
+        "model": "rooms.amenitymodel",
+        "pk": 6,
+        "fields": {
+            "name": "Sèche-cheveux",
+            "icon": "hair_dryer"
+        }
+    },
+    {
+        "model": "rooms.amenitymodel",
+        "pk": 7,
+        "fields": {
+            "name": "Mobilier de jardin",
+            "icon": "chair"
+        }
+    },
+    {
+        "model": "rooms.amenitymodel",
+        "pk": 8,
+        "fields": {
+            "name": "Douche",
+            "icon": "shower"
+        }
+    },
+    {
+        "model": "rooms.amenitymodel",
+        "pk": 9,
+        "fields": {
+            "name": "Bouilloire",
+            "icon": "kettle"
+        }
+    },
+    {
+        "model": "rooms.amenitymodel",
+        "pk": 10,
+        "fields": {
+            "name": "Vue sur la cour",
+            "icon": "yard"
+        }
+    },
+    {
+        "model": "rooms.amenitymodel",
+        "pk": 11,
+        "fields": {
+            "name": "Sèche-serviettes",
+            "icon": "towel"
+        }
+    },
+
+    {
+        "model": "rooms.roommodel",
+        "pk": 1,
+        "fields": {
+            "name": "Suite sous les toits",
+            "description": "Suite de 45 m² située au 2ᵉ étage, idéale pour 2 personnes. Grande chambre lumineuse avec espace salon sur le palier, salle de bains avec baignoire et WC privé. Vue sur le jardin et la mer. Équipements : lit 140x200, linge de lit, plateau de courtoisie, coin salon, bureau, réfrigérateur, machine à café, sèche-cheveux, linge de toilette, savon/shampoing, mobilier de jardin.",
+            "capacity": 2,
+            "price_per_night": "90.00",
+            "available": true,
+            "main_photo": "room_photos/suite_sous_les_toits.jpg",
+            "amenities": [1, 2, 3, 4, 5, 6, 7]
+        }
+    },
+    {
+        "model": "rooms.roommodel",
+        "pk": 2,
+        "fields": {
+            "name": "Chambre familiale",
+            "description": "Suite familiale de 40 m² située au 1ᵉʳ étage, idéale pour 2 personnes (jusqu’à 4 avec chambre supplémentaire). Grande chambre de 30 m² exposée plein sud, dégagement et salle d’eau avec douche et WC privé. Vue sur le jardin et la cour. Équipements : lit 160x200, linge de lit, plateau de courtoisie, bureau, réfrigérateur, machine à café, bouilloire, sèche-cheveux, sèche-serviettes, linge de toilette, savon/shampoing, mobilier de jardin.",
+            "capacity": 2,
+            "price_per_night": "90.00",
+            "available": true,
+            "main_photo": "room_photos/chambre_familiale.jpg",
+            "amenities": [1, 3, 5, 6, 7, 8, 9, 10, 11]
+        }
+    },
+    {
+        "model": "rooms.roommodel",
+        "pk": 3,
+        "fields": {
+            "name": "Chambre Normandy",
+            "description": "Chambre de 20 m² située au 1ᵉʳ étage de l’aile Est de la Ferme de Nehou, avec vue sur le phare. Entrée semi-indépendante, chambre double avec exposition Est/Ouest, salle de bains avec baignoire et douche, WC séparés. Vue sur la mer et sur la cour. Équipements : lit 140x200, linge de lit, plateau de courtoisie, réfrigérateur, machine à café, bouilloire, sèche-cheveux, sèche-serviettes, linge de toilette, mobilier de jardin.",
+            "capacity": 2,
+            "price_per_night": "90.00",
+            "available": true,
+            "main_photo": "room_photos/chambre_normandy.jpg",
+            "amenities": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+        }
+    }
+]
