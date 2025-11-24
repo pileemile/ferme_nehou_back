@@ -1,0 +1,42 @@
+[
+  {
+    "model": "activity.activity",
+    "pk": 1,
+    "fields": {
+      "name": "RANDONNÉES",
+      "description": "À pied ou à vélo (vélos à disposition de nos invités).\n\nNombreux sentiers de randonnées à proximité immédiate de la maison en bord de mer ou dans les terres.\n\nhttps://www.visorando.com/rand...\nhttps://www.visorando.com/rand...\nhttps://www.visorando.com/rand...",
+      "price": "0.00",
+      "available": true
+    }
+  },
+  {
+    "model": "activity.activity",
+    "pk": 2,
+    "fields": {
+      "name": "ESPACE FITNESS",
+      "description": "Appareils de sport et remise en forme.",
+      "price": "0.00",
+      "available": true
+    }
+  },
+  {
+    "model": "activity.activity",
+    "pk": 3,
+    "fields": {
+      "name": "ESPACE JACUZZI SAUNA",
+      "description": "Accessible de 16H00 à 19H00 par créneaux de 1H00 sur réservation (avant 14H00 le jour même, 20 € par chambre et par jour d'utilisation).",
+      "price": "20.00",
+      "available": true
+    }
+  },
+  {
+    "model": "activity.activity",
+    "pk": 4,
+    "fields": {
+      "name": "LOCATION DE KAYAKS",
+      "description": "La proximité du Raz de Barfleur et les forts courants peuvent rendre la navigation dangereuse. Cette activité nécessite de bonnes conditions météorologiques et une expérience de la discipline.",
+      "price": "20.00",
+      "available": true
+    }
+  }
+]
