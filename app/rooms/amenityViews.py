@@ -1,8 +1,8 @@
 from rest_framework import mixins
 from rest_framework.viewsets import GenericViewSet
 
-from app.rooms.amenityModel import AmenityModel
-from app.rooms.amenitySerializers import AmenitySerializer
+from app.rooms.models import AmenityModel
+from app.rooms.serializers import AmenitySerializer
 
 
 class AmenityViewSet(
