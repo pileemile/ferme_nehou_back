@@ -4,18 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d8029c-d282-4b95-bfd1-eba5debcf98b" name="Changes" comment="photo">
-      <change afterPath="$PROJECT_DIR$/app/photo/migrations/0002_remove_photo_file_url_photo_file_alter_photo_room.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/rooms/migrations/0002_amenitymodel_roommodel_amenities.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/rooms/migrations/0003_alter_roommodel_main_photo.py" afterDir="false" />
+    <list default="true" id="70d8029c-d282-4b95-bfd1-eba5debcf98b" name="Changes" comment="add photos in rooms">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/photo/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/photo/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/photo/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/photo/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/rooms/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/rooms/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/rooms/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/rooms/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_ferme_nehou_back/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ferme_nehou_back/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_ferme_nehou_back/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ferme_nehou_back/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/activity/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/activity/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/activity/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/activity/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/reservation/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/reservation/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/reservationActivity/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/reservationActivity/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/reviews/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/reviews/serializers.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +31,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="dev" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -53,6 +48,9 @@
     &quot;accountId&quot;: &quot;d3349b93-68c1-40c4-b9bd-20b1806ec6d9&quot;
   }
 }</component>
+  <component name="HttpClientOnboardingState">{
+  &quot;isOnboardingCommentShown&quot;: true
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -61,30 +59,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "git-widget-placeholder": "media-photo",
-    "last_opened_file_path": "C:/Users/emile/Desktop/projet_ferme_nehou/projet_ferme_nehou_back/media/room_photos/chambre-1",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;media-photo&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/emile/Desktop/projet_ferme_nehou/projet_ferme_nehou_back/media/room_photos/chambre-1&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\emile\Desktop\projet_ferme_nehou\projet_ferme_nehou_back\media\room_photos\chambre-1" />
@@ -119,8 +117,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-PY-252.27397.106" />
-        <option value="bundled-python-sdk-4e2b1448bda8-9a97661f3031-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.27397.106" />
+        <option value="bundled-js-predefined-d6986cc7102b-a71380e98a7c-JavaScript-PY-252.28238.29" />
+        <option value="bundled-python-sdk-a101402ee41c-968fe969f28a-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.28238.29" />
       </set>
     </attachedChunks>
   </component>
@@ -144,6 +142,12 @@
       <workItem from="1762341902263" duration="1953000" />
       <workItem from="1762952160990" duration="868000" />
       <workItem from="1763022723033" duration="15423000" />
+      <workItem from="1764600024429" duration="5000" />
+      <workItem from="1764600820146" duration="58000" />
+      <workItem from="1764670832766" duration="2854000" />
+      <workItem from="1764766243886" duration="23237000" />
+      <workItem from="1765183651562" duration="564000" />
+      <workItem from="1765184503905" duration="4709000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -233,7 +237,39 @@
       <option name="project" value="LOCAL" />
       <updated>1763031583253</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="amenity">
+      <option name="closed" value="true" />
+      <created>1764838662855</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1764838662855</updated>
+    </task>
+    <task id="LOCAL-00013" summary="amenity CRUD and route api/rooms/amenity">
+      <option name="closed" value="true" />
+      <created>1764941849121</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1764941849121</updated>
+    </task>
+    <task id="LOCAL-00014" summary="add amenities in rooms">
+      <option name="closed" value="true" />
+      <created>1764944718662</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1764944718663</updated>
+    </task>
+    <task id="LOCAL-00015" summary="add photos in rooms">
+      <option name="closed" value="true" />
+      <created>1764945391593</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1764945391593</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,6 +296,18 @@
     <MESSAGE value="filter django and update gitignore" />
     <MESSAGE value="icon + fixtures" />
     <MESSAGE value="photo" />
-    <option name="LAST_COMMIT_MESSAGE" value="photo" />
+    <MESSAGE value="amenity" />
+    <MESSAGE value="amenity CRUD and route api/rooms/amenity" />
+    <MESSAGE value="add amenities in rooms" />
+    <MESSAGE value="add photos in rooms" />
+    <option name="LAST_COMMIT_MESSAGE" value="add photos in rooms" />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
   </component>
 </project>

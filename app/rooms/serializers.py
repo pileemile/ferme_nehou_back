@@ -1,9 +1,24 @@
 from rest_framework import serializers
 from drf_spectacular.utils import extend_schema_field
 from drf_spectacular.types import OpenApiTypes
-from app.rooms.models import RoomModel
+
+from app.photo.serializers import SerializerPhoto
+from app.rooms.models import RoomModel, AmenityModel
+
+
+class AmenitySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AmenityModel
+        fields = [
+            'id',
+            'name',
+            'icon'
+        ]
+
 
 class SerializerRooms(serializers.ModelSerializer):
+    amenities = AmenitySerializer(many=True, read_only=True)
+    photos = SerializerPhoto(many=True, read_only=True)
     class Meta:
         model = RoomModel
         fields = [
@@ -14,7 +29,9 @@ class SerializerRooms(serializers.ModelSerializer):
             'price_per_night',
             'available',
             'main_photo',
-        ]
+            'amenities',
+            'photos',
+    ]
 
     @extend_schema_field(OpenApiTypes.STR)
     def get_main_photo(self, obj):
