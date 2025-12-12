@@ -1,5 +1,6 @@
 from datetime import datetime
 
+from django.db.models import Avg, Count
 from django.utils import timezone
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import mixins, status
@@ -8,6 +9,8 @@ from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
 
 from app.reservation.models import Reservation
+from app.reviews.models import Review
+from app.reviews.serializers import SerializerReviews
 from app.rooms.filter import RoomFilter
 from app.rooms.models import RoomModel
 from app.rooms.serializers import SerializerRooms
@@ -139,4 +142,30 @@ class RoomViewSet(
             'room_id': room.id,
             'room_name': room.name,
             'reservations': calendar_data
+        })
+    @action(detail=True, methods=['get'])
+    def average_rating(self, request, pk=None):
+        room = self.get_object()
+
+        stats = Review.objects.filter(room.room).aggregate(
+            average = Avg('rating'),
+            Total = Count('rating')
+        )
+        return Response({
+            'room_id': room.id,
+            'room_name': room.name,
+            'averege_rating': round(stats['average'], 2)if stats['average'] else None,
+            'total_reviews': stats['Total']
+        })
+
+    @action(detail=True, methods=['get'])
+    def reviews(self, request, pk=None):
+        room = self.get_object()
+        reviews = Review.objects.filter(room=room).select_related('client', 'reservation')
+        serializer = SerializerReviews(reviews, many=True, context={'request': request})
+        return Response({
+            'room_id': room.id,
+            'room_name': room.name,
+            'total_reviews': reviews.count(),
+            'reviews': serializer.data
         })
