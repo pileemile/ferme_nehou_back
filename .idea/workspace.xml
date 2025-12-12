@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70d8029c-d282-4b95-bfd1-eba5debcf98b" name="Changes" comment="✅ **Validation des dates** : vérifier qu'une chambre n'est pas déjà réservée&#10;&#10;✅ **Calcul automatique du prix total** selon les dates (check_in → check_out)&#10;&#10;✅ **Endpoint de disponibilité** : GET `/api/rooms/{id}/availability/?start_date=&amp;end_date=`&#10;&#10;✅ **Endpoint de recherche** : GET `/api/rooms/search/?check_in=&amp;check_out=&amp;guests=&amp;min_price=&amp;max_price=`&#10;&#10;✅ **Gestion des statuts** : pending, confirmed, cancelled, completed&#10;&#10;✅ **Transitions de statuts** : actions personnalisées (confirm, cancel, complete)&#10;&#10;✅  **Signal post-save** sur Reservation pour mettre à jour la disponibilité de la chambre&#10;✅ **Validation métier** : check_out &gt; check_in, guest_count ≤ capacity&#10;****">
-      <change afterPath="$PROJECT_DIR$/app/reservation/migrations/0002_alter_reservation_options_reservation_created_at_and_more.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/reservation/signals.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/reservation/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/reservation/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/reservation/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/reservation/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/reservation/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/reservation/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/reservation/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/reservation/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/reviews/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/reviews/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/reviews/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/reviews/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/reviews/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/reviews/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/rooms/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/rooms/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/rooms/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/rooms/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,8 +66,9 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "git-widget-placeholder": "features/Système-de-réservation-avancé",
+    "git-widget-placeholder": "features/SystemeAvis",
     "last_opened_file_path": "C:/Users/emile/Desktop/projet_ferme_nehou/projet_ferme_nehou_back/media/room_photos/chambre-1",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -104,6 +103,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
       <option name="launchJavascriptDebuger" value="false" />
       <option name="port" value="8000" />
       <option name="host" value="" />
@@ -119,8 +119,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-a71380e98a7c-JavaScript-PY-252.28238.29" />
-        <option value="bundled-python-sdk-a101402ee41c-968fe969f28a-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.28238.29" />
+        <option value="bundled-js-predefined-d6986cc7102b-c7e53b3be11b-JavaScript-PY-253.28294.336" />
+        <option value="bundled-python-sdk-0978a7220b69-9867c7d4c0a4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.28294.336" />
       </set>
     </attachedChunks>
   </component>
@@ -150,6 +150,9 @@
       <workItem from="1764766243886" duration="23237000" />
       <workItem from="1765183651562" duration="564000" />
       <workItem from="1765184503905" duration="4709000" />
+      <workItem from="1765375750183" duration="933000" />
+      <workItem from="1765377421990" duration="2345000" />
+      <workItem from="1765443369812" duration="15502000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
