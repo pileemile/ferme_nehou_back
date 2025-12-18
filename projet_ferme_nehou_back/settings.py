@@ -70,8 +70,11 @@ INSTALLED_APPS = [
     'app.reservationActivity.apps.ReservationActivityConfig',
     'app.reviews.apps.ReviewsConfig',
     'app.photo.apps.PhotoConfig',
-    'app.authentication'
+    'app.authentification.apps.AuthentificationConfig'
 ]
+
+AUTH_USER_MODEL = 'authentification.User'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
