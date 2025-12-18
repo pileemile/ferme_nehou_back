@@ -4,10 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d8029c-d282-4b95-bfd1-eba5debcf98b" name="Changes" comment="✅ **Ordre d'affichage** : ajouter un champ `order` sur Photo&#10;&#10;✅ **Compression automatique** des images à l'upload (Pillow)&#10;&#10;✅ **Génération de miniatures** (thumbnail)&#10;&#10;✅ **Validation** : types de fichiers acceptés (JPEG, PNG, WebP)&#10;&#10;✅  **Limite de taille** : max 5MB par photo&#10;****">
+    <list default="true" id="70d8029c-d282-4b95-bfd1-eba5debcf98b" name="Changes" comment="✅ **CRUD complet** pour les amenities&#10;&#10;✅  **Endpoint** : GET `/api/rooms/{id}/amenities/` (liste des équipements d'une chambre)&#10;&#10;✅ **Filtre de recherche** : chercher des chambres par équipements">
+      <change afterPath="$PROJECT_DIR$/app/authentification/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/authentification/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/authentification/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/authentification/serializers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/authentification/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/authentification/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/rooms/filter.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/rooms/filter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/rooms/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/rooms/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/rooms/fixtures/rooms_fixture.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/rooms/fixtures/rooms_fixture.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ferme_nehou_back/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ferme_nehou_back/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +56,9 @@
   <component name="HttpClientOnboardingState">{
   &quot;isOnboardingCommentShown&quot;: true
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -56,31 +67,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "git-widget-placeholder": "features/gestion__equipement",
-    "last_opened_file_path": "C:/Users/emile/Desktop/projet_ferme_nehou/projet_ferme_nehou_back/media/room_photos/chambre-1",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;features/gestion__equipement&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/emile/Desktop/projet_ferme_nehou/projet_ferme_nehou_back/media/room_photos/chambre-1&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\emile\Desktop\projet_ferme_nehou\projet_ferme_nehou_back\media\room_photos\chambre-1" />
@@ -150,7 +161,9 @@
       <workItem from="1765375750183" duration="933000" />
       <workItem from="1765377421990" duration="2345000" />
       <workItem from="1765443369812" duration="15502000" />
-      <workItem from="1765791825684" duration="11901000" />
+      <workItem from="1765791825684" duration="14298000" />
+      <workItem from="1765873240015" duration="6126000" />
+      <workItem from="1765959422885" duration="8917000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -296,7 +309,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765807543844</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="✅ **CRUD complet** pour les amenities&#10;&#10;✅  **Endpoint** : GET `/api/rooms/{id}/amenities/` (liste des équipements d'une chambre)&#10;&#10;✅ **Filtre de recherche** : chercher des chambres par équipements">
+      <option name="closed" value="true" />
+      <created>1765812042225</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1765812042225</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -330,17 +351,8 @@
     <MESSAGE value="add migration" />
     <MESSAGE value="✅ **Validation des dates** : vérifier qu'une chambre n'est pas déjà réservée&#10;&#10;✅ **Calcul automatique du prix total** selon les dates (check_in → check_out)&#10;&#10;✅ **Endpoint de disponibilité** : GET `/api/rooms/{id}/availability/?start_date=&amp;end_date=`&#10;&#10;✅ **Endpoint de recherche** : GET `/api/rooms/search/?check_in=&amp;check_out=&amp;guests=&amp;min_price=&amp;max_price=`&#10;&#10;✅ **Gestion des statuts** : pending, confirmed, cancelled, completed&#10;&#10;✅ **Transitions de statuts** : actions personnalisées (confirm, cancel, complete)&#10;&#10;✅  **Signal post-save** sur Reservation pour mettre à jour la disponibilité de la chambre&#10;✅ **Validation métier** : check_out &gt; check_in, guest_count ≤ capacity&#10;****" />
     <MESSAGE value="✅ **Ordre d'affichage** : ajouter un champ `order` sur Photo&#10;&#10;✅ **Compression automatique** des images à l'upload (Pillow)&#10;&#10;✅ **Génération de miniatures** (thumbnail)&#10;&#10;✅ **Validation** : types de fichiers acceptés (JPEG, PNG, WebP)&#10;&#10;✅  **Limite de taille** : max 5MB par photo&#10;****" />
-    <option name="LAST_COMMIT_MESSAGE" value="✅ **Ordre d'affichage** : ajouter un champ `order` sur Photo&#10;&#10;✅ **Compression automatique** des images à l'upload (Pillow)&#10;&#10;✅ **Génération de miniatures** (thumbnail)&#10;&#10;✅ **Validation** : types de fichiers acceptés (JPEG, PNG, WebP)&#10;&#10;✅  **Limite de taille** : max 5MB par photo&#10;****" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/app/rooms/filter.py</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="✅ **CRUD complet** pour les amenities&#10;&#10;✅  **Endpoint** : GET `/api/rooms/{id}/amenities/` (liste des équipements d'une chambre)&#10;&#10;✅ **Filtre de recherche** : chercher des chambres par équipements" />
+    <option name="LAST_COMMIT_MESSAGE" value="✅ **CRUD complet** pour les amenities&#10;&#10;✅  **Endpoint** : GET `/api/rooms/{id}/amenities/` (liste des équipements d'une chambre)&#10;&#10;✅ **Filtre de recherche** : chercher des chambres par équipements" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
