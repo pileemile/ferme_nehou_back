@@ -1,9 +1,11 @@
 from django.utils import timezone
 from rest_framework import mixins, status
 from rest_framework.decorators import action
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
 
+from app.permissions import IsOwnerOrAdmin
 from app.reservation.models import Reservation
 from app.reservation.serializers import ReservationSerializer
 
@@ -16,6 +18,7 @@ class ReservationViewSet(
     mixins.UpdateModelMixin,
     mixins.DestroyModelMixin,
 ):
+    permission_classes = [IsAuthenticated, IsOwnerOrAdmin]
     serializer_class = ReservationSerializer
     def get_queryset(self):
         return Reservation.objects.all().select_related('customer', 'room')

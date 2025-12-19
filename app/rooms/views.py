@@ -8,6 +8,7 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
 
+from app.permissions import IsAdminUser
 from app.reservation.models import Reservation
 from app.reviews.models import Review
 from app.reviews.serializers import SerializerReviews
@@ -24,6 +25,7 @@ class RoomViewSet(
     mixins.UpdateModelMixin,
     mixins.DestroyModelMixin,
 ):
+    permission_classes = [IsAdminUser]
     serializer_class = SerializerRooms
     filter_backends = [DjangoFilterBackend]
     filterset_class = RoomFilter
