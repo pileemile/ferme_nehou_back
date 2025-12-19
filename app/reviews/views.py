@@ -3,6 +3,7 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
 
+from app.permissions import CanReviewReservation
 from app.reviews.models import Review
 from app.reviews.serializers import SerializerReviews
 
@@ -15,6 +16,7 @@ class ReviewViewSet(
     mixins.UpdateModelMixin,
     mixins.DestroyModelMixin,
 ):
+    permission_classes = [CanReviewReservation]
     serializer_class = SerializerReviews
     def get_queryset(self):
         return Review.objects.all().select_related('client', 'room', 'reservation')
