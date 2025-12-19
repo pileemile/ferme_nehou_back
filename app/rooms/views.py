@@ -13,7 +13,7 @@ from app.reviews.models import Review
 from app.reviews.serializers import SerializerReviews
 from app.rooms.filter import RoomFilter
 from app.rooms.models import RoomModel
-from app.rooms.serializers import SerializerRooms
+from app.rooms.serializers import SerializerRooms, AmenitySerializer
 
 
 class RoomViewSet(
@@ -147,7 +147,7 @@ class RoomViewSet(
     def average_rating(self, request, pk=None):
         room = self.get_object()
 
-        stats = Review.objects.filter(room.room).aggregate(
+        stats = Review.objects.filter(room=room).aggregate(
             average = Avg('rating'),
             Total = Count('rating')
         )
@@ -168,4 +168,14 @@ class RoomViewSet(
             'room_name': room.name,
             'total_reviews': reviews.count(),
             'reviews': serializer.data
+        })
+    @action(detail=True, methods=['get'])
+    def amenities(self, request, pk=None):
+        room = self.get_object()
+        amenities = room.amenities.all()
+        serializer = AmenitySerializer(amenities, many=True)
+        return Response({
+            'room_id': room.id,
+            'room_name' : room.name,
+            'amenities' : serializer.data
         })
