@@ -4,18 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d8029c-d282-4b95-bfd1-eba5debcf98b" name="Changes" comment="photo">
-      <change afterPath="$PROJECT_DIR$/app/photo/migrations/0002_remove_photo_file_url_photo_file_alter_photo_room.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/rooms/migrations/0002_amenitymodel_roommodel_amenities.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/rooms/migrations/0003_alter_roommodel_main_photo.py" afterDir="false" />
+    <list default="true" id="70d8029c-d282-4b95-bfd1-eba5debcf98b" name="Changes" comment="✅ **CRUD complet** pour les amenities&#10;&#10;✅  **Endpoint** : GET `/api/rooms/{id}/amenities/` (liste des équipements d'une chambre)&#10;&#10;✅ **Filtre de recherche** : chercher des chambres par équipements">
+      <change afterPath="$PROJECT_DIR$/app/permissions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/photo/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/photo/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/photo/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/photo/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/rooms/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/rooms/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/rooms/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/rooms/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_ferme_nehou_back/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ferme_nehou_back/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_ferme_nehou_back/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ferme_nehou_back/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/activity/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/activity/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/photo/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/photo/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/reservation/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/reservation/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/reviews/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/reviews/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/rooms/amenityViews.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/rooms/amenityViews.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/rooms/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/rooms/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +50,12 @@
     &quot;accountId&quot;: &quot;d3349b93-68c1-40c4-b9bd-20b1806ec6d9&quot;
   }
 }</component>
+  <component name="HttpClientOnboardingState">{
+  &quot;isOnboardingCommentShown&quot;: true
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -68,8 +71,10 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "git-widget-placeholder": "media-photo",
+    "git-widget-placeholder": "features/permissions",
     "last_opened_file_path": "C:/Users/emile/Desktop/projet_ferme_nehou/projet_ferme_nehou_back/media/room_photos/chambre-1",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -104,6 +109,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
       <option name="launchJavascriptDebuger" value="false" />
       <option name="port" value="8000" />
       <option name="host" value="" />
@@ -119,8 +125,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-PY-252.27397.106" />
-        <option value="bundled-python-sdk-4e2b1448bda8-9a97661f3031-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.27397.106" />
+        <option value="bundled-js-predefined-d6986cc7102b-c7e53b3be11b-JavaScript-PY-253.28294.336" />
+        <option value="bundled-python-sdk-0978a7220b69-9867c7d4c0a4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.28294.336" />
       </set>
     </attachedChunks>
   </component>
@@ -144,6 +150,18 @@
       <workItem from="1762341902263" duration="1953000" />
       <workItem from="1762952160990" duration="868000" />
       <workItem from="1763022723033" duration="15423000" />
+      <workItem from="1764600024429" duration="5000" />
+      <workItem from="1764600820146" duration="58000" />
+      <workItem from="1764670832766" duration="2854000" />
+      <workItem from="1764766243886" duration="23237000" />
+      <workItem from="1765183651562" duration="564000" />
+      <workItem from="1765184503905" duration="4709000" />
+      <workItem from="1765375750183" duration="933000" />
+      <workItem from="1765377421990" duration="2345000" />
+      <workItem from="1765443369812" duration="15502000" />
+      <workItem from="1765791825684" duration="14298000" />
+      <workItem from="1765873240015" duration="6126000" />
+      <workItem from="1765959422885" duration="8917000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -233,7 +251,71 @@
       <option name="project" value="LOCAL" />
       <updated>1763031583253</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="amenity">
+      <option name="closed" value="true" />
+      <created>1764838662855</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1764838662855</updated>
+    </task>
+    <task id="LOCAL-00013" summary="amenity CRUD and route api/rooms/amenity">
+      <option name="closed" value="true" />
+      <created>1764941849121</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1764941849121</updated>
+    </task>
+    <task id="LOCAL-00014" summary="add amenities in rooms">
+      <option name="closed" value="true" />
+      <created>1764944718662</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1764944718663</updated>
+    </task>
+    <task id="LOCAL-00015" summary="add photos in rooms">
+      <option name="closed" value="true" />
+      <created>1764945391593</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1764945391593</updated>
+    </task>
+    <task id="LOCAL-00016" summary="add migration">
+      <option name="closed" value="true" />
+      <created>1765192938010</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1765192938011</updated>
+    </task>
+    <task id="LOCAL-00017" summary="✅ **Ordre d'affichage** : ajouter un champ `order` sur Photo&#10;&#10;✅ **Compression automatique** des images à l'upload (Pillow)&#10;&#10;✅ **Génération de miniatures** (thumbnail)&#10;&#10;✅ **Validation** : types de fichiers acceptés (JPEG, PNG, WebP)&#10;&#10;✅  **Limite de taille** : max 5MB par photo&#10;****">
+      <option name="closed" value="true" />
+      <created>1765804938034</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1765804938034</updated>
+    </task>
+    <task id="LOCAL-00018" summary="✅ **Ordre d'affichage** : ajouter un champ `order` sur Photo&#10;&#10;✅ **Compression automatique** des images à l'upload (Pillow)&#10;&#10;✅ **Génération de miniatures** (thumbnail)&#10;&#10;✅ **Validation** : types de fichiers acceptés (JPEG, PNG, WebP)&#10;&#10;✅  **Limite de taille** : max 5MB par photo&#10;****">
+      <option name="closed" value="true" />
+      <created>1765807543844</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1765807543844</updated>
+    </task>
+    <task id="LOCAL-00019" summary="✅ **CRUD complet** pour les amenities&#10;&#10;✅  **Endpoint** : GET `/api/rooms/{id}/amenities/` (liste des équipements d'une chambre)&#10;&#10;✅ **Filtre de recherche** : chercher des chambres par équipements">
+      <option name="closed" value="true" />
+      <created>1765812042225</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1765812042225</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,6 +342,22 @@
     <MESSAGE value="filter django and update gitignore" />
     <MESSAGE value="icon + fixtures" />
     <MESSAGE value="photo" />
-    <option name="LAST_COMMIT_MESSAGE" value="photo" />
+    <MESSAGE value="amenity" />
+    <MESSAGE value="amenity CRUD and route api/rooms/amenity" />
+    <MESSAGE value="add amenities in rooms" />
+    <MESSAGE value="add photos in rooms" />
+    <MESSAGE value="add migration" />
+    <MESSAGE value="✅ **Validation des dates** : vérifier qu'une chambre n'est pas déjà réservée&#10;&#10;✅ **Calcul automatique du prix total** selon les dates (check_in → check_out)&#10;&#10;✅ **Endpoint de disponibilité** : GET `/api/rooms/{id}/availability/?start_date=&amp;end_date=`&#10;&#10;✅ **Endpoint de recherche** : GET `/api/rooms/search/?check_in=&amp;check_out=&amp;guests=&amp;min_price=&amp;max_price=`&#10;&#10;✅ **Gestion des statuts** : pending, confirmed, cancelled, completed&#10;&#10;✅ **Transitions de statuts** : actions personnalisées (confirm, cancel, complete)&#10;&#10;✅  **Signal post-save** sur Reservation pour mettre à jour la disponibilité de la chambre&#10;✅ **Validation métier** : check_out &gt; check_in, guest_count ≤ capacity&#10;****" />
+    <MESSAGE value="✅ **Ordre d'affichage** : ajouter un champ `order` sur Photo&#10;&#10;✅ **Compression automatique** des images à l'upload (Pillow)&#10;&#10;✅ **Génération de miniatures** (thumbnail)&#10;&#10;✅ **Validation** : types de fichiers acceptés (JPEG, PNG, WebP)&#10;&#10;✅  **Limite de taille** : max 5MB par photo&#10;****" />
+    <MESSAGE value="✅ **CRUD complet** pour les amenities&#10;&#10;✅  **Endpoint** : GET `/api/rooms/{id}/amenities/` (liste des équipements d'une chambre)&#10;&#10;✅ **Filtre de recherche** : chercher des chambres par équipements" />
+    <option name="LAST_COMMIT_MESSAGE" value="✅ **CRUD complet** pour les amenities&#10;&#10;✅  **Endpoint** : GET `/api/rooms/{id}/amenities/` (liste des équipements d'une chambre)&#10;&#10;✅ **Filtre de recherche** : chercher des chambres par équipements" />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
   </component>
 </project>

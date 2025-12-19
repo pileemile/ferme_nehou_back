@@ -8,4 +8,5 @@ urlpatterns = [
     path('reservationActivity/', include('app.reservationActivity.urls')),
     path('reviews/', include('app.reviews.urls')),
     path('photo/', include('app.photo.urls')),
+    path('authentification/', include('app.authentification.urls')),
 ]

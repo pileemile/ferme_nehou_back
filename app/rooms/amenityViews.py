@@ -1,12 +1,12 @@
 from rest_framework import mixins
 from rest_framework.viewsets import GenericViewSet
 
-from app.permissions import IsAdminOrReadOnly
-from app.photo.models import Photo
-from app.photo.serializers import SerializerPhoto
+from app.permissions import IsAdminUser
+from app.rooms.models import AmenityModel
+from app.rooms.serializers import AmenitySerializer
 
 
-class PhotoViewSet(
+class AmenityViewSet(
     GenericViewSet,
     mixins.ListModelMixin,
     mixins.RetrieveModelMixin,
@@ -14,7 +14,7 @@ class PhotoViewSet(
     mixins.UpdateModelMixin,
     mixins.DestroyModelMixin,
 ):
-    permission_classes = [IsAdminOrReadOnly]
-    serializer_class = SerializerPhoto
+    permission_classes = [IsAdminUser]
+    serializer_class = AmenitySerializer
     def get_queryset(self):
-        return Photo.objects.all()
+        return AmenityModel.objects.all()
