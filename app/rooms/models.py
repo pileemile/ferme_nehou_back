@@ -25,8 +25,8 @@ def room_main_photo_path(instance, filename):
 class RoomModel(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField(blank=True)
-    capacity = models.IntegerField( validators=validate_capacity)
-    price_per_night = models.DecimalField(max_digits=7, decimal_places=2, validators=[validate_price])
+    capacity = models.IntegerField(validators=[validate_capacity])
+    price_per_night = models.DecimalField(max_digits=7,decimal_places=2,validators=[validate_price] )
     available = models.BooleanField(default=True)
     main_photo = models.ImageField(upload_to=room_main_photo_path, blank=True, null=True)
-    amenities = models.ManyToManyField('AmenityModel', related_name='rooms', blank=True)
+    amenities = models.ManyToManyField(AmenityModel, related_name='rooms', blank=True)
