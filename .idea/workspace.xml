@@ -4,15 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d8029c-d282-4b95-bfd1-eba5debcf98b" name="Changes" comment="✅ **CRUD complet** pour les amenities&#10;&#10;✅  **Endpoint** : GET `/api/rooms/{id}/amenities/` (liste des équipements d'une chambre)&#10;&#10;✅ **Filtre de recherche** : chercher des chambres par équipements">
-      <change afterPath="$PROJECT_DIR$/app/permissions.py" afterDir="false" />
+    <list default="true" id="70d8029c-d282-4b95-bfd1-eba5debcf98b" name="Changes" comment="✅ **Ajout de la validation et du middleware de limitation de taux**&#10;- Implémentation d'un middleware pour gérer les limitations de requêtes.&#10;- Ajout de validateurs pour les champs de modèle (email, téléphone, capacité, prix).&#10;- Nettoyage des entrées utilisateur dans les sérialiseurs.">
+      <change afterPath="$PROJECT_DIR$/app/utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/utils/sanitizers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generate_secret_key.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/activity/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/activity/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/photo/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/photo/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/reservation/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/reservation/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/reviews/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/reviews/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/rooms/amenityViews.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/rooms/amenityViews.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/rooms/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/rooms/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/rooms/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/rooms/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ferme_nehou_back/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ferme_nehou_back/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,32 +64,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "git-widget-placeholder": "features/permissions",
-    "last_opened_file_path": "C:/Users/emile/Desktop/projet_ferme_nehou/projet_ferme_nehou_back/media/room_photos/chambre-1",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;features/validator-security&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/emile/Desktop/projet_ferme_nehou/projet_ferme_nehou_back/media/room_photos/chambre-1&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\emile\Desktop\projet_ferme_nehou\projet_ferme_nehou_back\media\room_photos\chambre-1" />
@@ -162,6 +162,11 @@
       <workItem from="1765791825684" duration="14298000" />
       <workItem from="1765873240015" duration="6126000" />
       <workItem from="1765959422885" duration="8917000" />
+      <workItem from="1766476771015" duration="602000" />
+      <workItem from="1771927754491" duration="3867000" />
+      <workItem from="1772012190183" duration="6873000" />
+      <workItem from="1773650567634" duration="760000" />
+      <workItem from="1773672341323" duration="9044000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -315,7 +320,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765812042225</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="✅ **Ajout de la validation et du middleware de limitation de taux**&#10;- Implémentation d'un middleware pour gérer les limitations de requêtes.&#10;- Ajout de validateurs pour les champs de modèle (email, téléphone, capacité, prix).&#10;- Nettoyage des entrées utilisateur dans les sérialiseurs.">
+      <option name="closed" value="true" />
+      <created>1772034186386</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1772034186386</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -350,7 +363,8 @@
     <MESSAGE value="✅ **Validation des dates** : vérifier qu'une chambre n'est pas déjà réservée&#10;&#10;✅ **Calcul automatique du prix total** selon les dates (check_in → check_out)&#10;&#10;✅ **Endpoint de disponibilité** : GET `/api/rooms/{id}/availability/?start_date=&amp;end_date=`&#10;&#10;✅ **Endpoint de recherche** : GET `/api/rooms/search/?check_in=&amp;check_out=&amp;guests=&amp;min_price=&amp;max_price=`&#10;&#10;✅ **Gestion des statuts** : pending, confirmed, cancelled, completed&#10;&#10;✅ **Transitions de statuts** : actions personnalisées (confirm, cancel, complete)&#10;&#10;✅  **Signal post-save** sur Reservation pour mettre à jour la disponibilité de la chambre&#10;✅ **Validation métier** : check_out &gt; check_in, guest_count ≤ capacity&#10;****" />
     <MESSAGE value="✅ **Ordre d'affichage** : ajouter un champ `order` sur Photo&#10;&#10;✅ **Compression automatique** des images à l'upload (Pillow)&#10;&#10;✅ **Génération de miniatures** (thumbnail)&#10;&#10;✅ **Validation** : types de fichiers acceptés (JPEG, PNG, WebP)&#10;&#10;✅  **Limite de taille** : max 5MB par photo&#10;****" />
     <MESSAGE value="✅ **CRUD complet** pour les amenities&#10;&#10;✅  **Endpoint** : GET `/api/rooms/{id}/amenities/` (liste des équipements d'une chambre)&#10;&#10;✅ **Filtre de recherche** : chercher des chambres par équipements" />
-    <option name="LAST_COMMIT_MESSAGE" value="✅ **CRUD complet** pour les amenities&#10;&#10;✅  **Endpoint** : GET `/api/rooms/{id}/amenities/` (liste des équipements d'une chambre)&#10;&#10;✅ **Filtre de recherche** : chercher des chambres par équipements" />
+    <MESSAGE value="✅ **Ajout de la validation et du middleware de limitation de taux**&#10;- Implémentation d'un middleware pour gérer les limitations de requêtes.&#10;- Ajout de validateurs pour les champs de modèle (email, téléphone, capacité, prix).&#10;- Nettoyage des entrées utilisateur dans les sérialiseurs." />
+    <option name="LAST_COMMIT_MESSAGE" value="✅ **Ajout de la validation et du middleware de limitation de taux**&#10;- Implémentation d'un middleware pour gérer les limitations de requêtes.&#10;- Ajout de validateurs pour les champs de modèle (email, téléphone, capacité, prix).&#10;- Nettoyage des entrées utilisateur dans les sérialiseurs." />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>

@@ -2,7 +2,9 @@ from datetime import datetime
 
 from django.db.models import Avg, Count
 from django.utils import timezone
+from django.utils.decorators import method_decorator
 from django_filters.rest_framework import DjangoFilterBackend
+from django_ratelimit.decorators import ratelimit
 from rest_framework import mixins, status
 from rest_framework.decorators import action
 from rest_framework.response import Response
@@ -32,6 +34,19 @@ class RoomViewSet(
 
     def get_queryset(self):
         return RoomModel.objects.all().prefetch_related('amenities', 'photos')
+
+    rate_limit = method_decorator(
+        ratelimit(key='ip', rate='100/h', method='GET'),
+        name='list'
+    )
+
+    @ratelimit(key='ip', rate='50/h', method='GET')
+    @action(detail=False, methods=['get'])
+    def search(self, request):
+        """Recherche limitée à 50 requêtes/heure par IP"""
+        # Votre code de recherche
+        pass
+
 
     @action(detail=True, methods=['get'])
     def availability(self, request, pk=None):
