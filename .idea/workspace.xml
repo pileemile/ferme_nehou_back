@@ -4,15 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d8029c-d282-4b95-bfd1-eba5debcf98b" name="Changes" comment="✅ **Ajout de la validation et du middleware de limitation de taux**&#10;- Implémentation d'un middleware pour gérer les limitations de requêtes.&#10;- Ajout de validateurs pour les champs de modèle (email, téléphone, capacité, prix).&#10;- Nettoyage des entrées utilisateur dans les sérialiseurs.">
-      <change afterPath="$PROJECT_DIR$/app/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/utils/sanitizers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/generate_secret_key.py" afterDir="false" />
+    <list default="true" id="70d8029c-d282-4b95-bfd1-eba5debcf98b" name="Changes" comment="add initial HTML templates for email notifications">
+      <change afterPath="$PROJECT_DIR$/app/emails/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/emails/service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/emails/template/admin_new_reservation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/emails/template/base_email.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/emails/template/reservation_cancelled.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/emails/template/reservation_confirmation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/emails/template/reservation_reminder.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/emails/template/review_request.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/rooms/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/rooms/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/rooms/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/rooms/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_ferme_nehou_back/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ferme_nehou_back/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +28,7 @@
       <list>
         <option value="Dockerfile" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -37,6 +39,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SET_USER_NAME_GLOBALLY" value="false" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -66,6 +69,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -74,7 +78,7 @@
     &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;features/validator-security&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;features/emails&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/emile/Desktop/projet_ferme_nehou/projet_ferme_nehou_back/media/room_photos/chambre-1&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -167,6 +171,7 @@
       <workItem from="1772012190183" duration="6873000" />
       <workItem from="1773650567634" duration="760000" />
       <workItem from="1773672341323" duration="9044000" />
+      <workItem from="1773845509022" duration="1197000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -364,7 +369,8 @@
     <MESSAGE value="✅ **Ordre d'affichage** : ajouter un champ `order` sur Photo&#10;&#10;✅ **Compression automatique** des images à l'upload (Pillow)&#10;&#10;✅ **Génération de miniatures** (thumbnail)&#10;&#10;✅ **Validation** : types de fichiers acceptés (JPEG, PNG, WebP)&#10;&#10;✅  **Limite de taille** : max 5MB par photo&#10;****" />
     <MESSAGE value="✅ **CRUD complet** pour les amenities&#10;&#10;✅  **Endpoint** : GET `/api/rooms/{id}/amenities/` (liste des équipements d'une chambre)&#10;&#10;✅ **Filtre de recherche** : chercher des chambres par équipements" />
     <MESSAGE value="✅ **Ajout de la validation et du middleware de limitation de taux**&#10;- Implémentation d'un middleware pour gérer les limitations de requêtes.&#10;- Ajout de validateurs pour les champs de modèle (email, téléphone, capacité, prix).&#10;- Nettoyage des entrées utilisateur dans les sérialiseurs." />
-    <option name="LAST_COMMIT_MESSAGE" value="✅ **Ajout de la validation et du middleware de limitation de taux**&#10;- Implémentation d'un middleware pour gérer les limitations de requêtes.&#10;- Ajout de validateurs pour les champs de modèle (email, téléphone, capacité, prix).&#10;- Nettoyage des entrées utilisateur dans les sérialiseurs." />
+    <MESSAGE value="add initial HTML templates for email notifications" />
+    <option name="LAST_COMMIT_MESSAGE" value="add initial HTML templates for email notifications" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
