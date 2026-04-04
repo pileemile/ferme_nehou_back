@@ -5,6 +5,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
 
+from app.emails.service import EmailService
 from app.permissions import IsOwnerOrAdmin
 from app.reservation.models import Reservation
 from app.reservation.serializers import ReservationSerializer
@@ -56,6 +57,36 @@ class ReservationViewSet(
 
         reservation.status = 'completed'
         reservation.save()
+
+        serializer = self.get_serializer(reservation)
+        return Response(serializer.data)
+
+    def create(self, request, *args, **kwargs):
+        response = super().create(request, *args, **kwargs)
+        reservation = Reservation.objects.get(pk=response.data['id'])
+
+        EmailService.send_reservation_confirmation(reservation)
+
+        EmailService.send_admin_new_reservation(reservation)
+
+        return response
+
+    @action(detail=True, methods=['post'])
+    def cancel(self, request, pk=None):
+        """Annuler et envoyer email"""
+        reservation = self.get_object()
+
+        if not reservation.can_be_cancelled():
+            return Response(
+                {'error': 'Cette réservation ne peut pas être annulée'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        reservation.status = 'cancelled'
+        reservation.save()
+
+        refund_info = "vous serez remboursé intégralement"
+        EmailService.send_reservation_cancelled(reservation, refund_info)
 
         serializer = self.get_serializer(reservation)
         return Response(serializer.data)

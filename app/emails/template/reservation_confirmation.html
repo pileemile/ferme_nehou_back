@@ -1,10 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base_email.html" %}
 
-</body>
-</html>
+{% block title %}Confirmation de réservation - Ferme de Néhou{% endblock %}
+
+{% block content %}
+<h2>🎉 Votre réservation est confirmée !</h2>
+
+<p>Bonjour {{ customer_name }},</p>
+
+<p>Nous sommes ravis de confirmer votre réservation à la Ferme de Néhou !</p>
+
+<div class="info-box">
+    <h3>📋 Détails de votre réservation</h3>
+    
+    <div class="info-row">
+        <span class="info-label">Numéro de réservation :</span>
+        <span class="info-value">#{{ reservation_id }}</span>
+    </div>
+    
+    <div class="info-row">
+        <span class="info-label">Chambre :</span>
+        <span class="info-value">{{ room_name }}</span>
+    </div>
+    
+    <div class="info-row">
+        <span class="info-label">Date d'arrivée :</span>
+        <span class="info-value">{{ check_in_date }}</span>
+    </div>
+    
+    <div class="info-row">
+        <span class="info-label">Date de départ :</span>
+        <span class="info-value">{{ check_out_date }}</span>
+    </div>
+    
+    <div class="info-row">
+        <span class="info-label">Nombre de nuits :</span>
+        <span class="info-value">{{ number_of_nights }}</span>
+    </div>
+    
+    <div class="info-row">
+        <span class="info-label">Nombre de voyageurs :</span>
+        <span class="info-value">{{ guest_count }}</span>
+    </div>
+    
+    <div class="divider"></div>
+    
+    <div class="info-row">
+        <span class="info-label"><strong>Prix total :</strong></span>
+        <span class="info-value"><strong>{{ total_price }} €</strong></span>
+    </div>
+</div>
+
+{% if activities %}
+<div class="info-box">
+    <h3>🎯 Activités réservées</h3>
+    {% for activity in activities %}
+    <div class="info-row">
+        <span class="info-label">{{ activity.name }}</span>
+        <span class="info-value">{{ activity.quantity }}x {{ activity.price }}€</span>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<div class="info-box">
+    <h3>ℹ️ Informations pratiques</h3>
+    <p><strong>Arrivée :</strong> entre 15h00 et 20h00</p>
+    <p><strong>Départ :</strong> avant 11h00</p>
+    <p><strong>Adresse :</strong> La Ferme de Néhou, Gatteville Le Phare, 50760</p>
+</div>
+
+<p>Nous avons hâte de vous accueillir ! Si vous avez des questions, n'hésitez pas à nous contacter.</p>
+
+<a href="https://lafermedenehou.com/reservations/{{ reservation_id }}" class="button">
+    Voir ma réservation
+</a>
+
+<p>À très bientôt,<br>
+<strong>L'équipe de la Ferme de Néhou</strong></p>
+{% endblock %}
