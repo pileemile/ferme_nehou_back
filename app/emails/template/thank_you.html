@@ -1,0 +1,48 @@
+{% extends "base_email.html" %}
+
+{% block title %}Merci pour votre séjour - Ferme de Néhou{% endblock %}
+
+{% block content %}
+<h2>🙏 Merci pour votre visite !</h2>
+
+<p>Bonjour {{ customer_name }},</p>
+
+<p>Toute l'équipe de la Ferme de Néhou vous remercie chaleureusement pour votre séjour parmi nous !</p>
+
+<p>Nous espérons que vous avez passé un excellent moment dans notre {{ room_name }} et que vous avez apprécié la beauté du Val de Saire et du Cotentin.</p>
+
+<div class="info-box">
+    <h3>📸 Partagez vos souvenirs</h3>
+    <p>N'hésitez pas à partager vos plus belles photos de séjour sur les réseaux sociaux en nous mentionnant :</p>
+    <p>
+        <strong>Instagram :</strong> @fermedenehou<br>
+        <strong>Facebook :</strong> La Ferme de Néhou<br>
+        <strong>Hashtag :</strong> #FermeDeNehou #ValDeSaire
+    </p>
+</div>
+
+<div class="info-box">
+    <h3>🎁 Offre fidélité</h3>
+    <p>En tant que client fidèle, bénéficiez de <strong>10% de réduction</strong> sur votre prochaine réservation !</p>
+    <p>Utilisez le code : <strong style="color: #667eea; font-size: 18px;">RETOUR10</strong></p>
+    <p style="font-size: 14px; color: #999;">Valable jusqu'au {{ offer_expiry }}</p>
+</div>
+
+<div class="info-box">
+    <h3>👥 Parrainez vos amis</h3>
+    <p>Parlez de nous à vos proches ! Pour chaque ami que vous parrainez, vous et votre ami recevrez une réduction de 15€ sur votre prochaine réservation.</p>
+</div>
+
+<p>Nous serions ravis de vous accueillir à nouveau très bientôt !</p>
+
+<a href="https://lafermedenehou.com/chambres" class="button">
+    Réserver à nouveau
+</a>
+
+<p>À bientôt,<br>
+<strong>Marie et toute l'équipe de la Ferme de Néhou</strong></p>
+
+<p style="font-style: italic; color: #666; font-size: 14px; margin-top: 30px;">
+    P.S. : Dans deux jours, nous vous enverrons un email pour recueillir votre avis sur votre séjour. Votre retour nous est précieux ! 😊
+</p>
+{% endblock %}

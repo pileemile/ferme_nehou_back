@@ -90,3 +90,52 @@ class ReservationViewSet(
 
         serializer = self.get_serializer(reservation)
         return Response(serializer.data)
+
+    def update(self, request, *args, **kwargs):
+        """Modifier réservation + email"""
+        # Récupérer l'ancienne version pour comparer
+        old_reservation = self.get_object()
+        old_dates = (old_reservation.check_in_date, old_reservation.check_out_date)
+        old_guests = old_reservation.guest_count
+
+        response = super().update(request, *args, **kwargs)
+        reservation = Reservation.objects.get(pk=response.data['id'])
+
+        # Détecter les changements
+        changes = []
+        if old_dates[0] != reservation.check_in_date or old_dates[1] != reservation.check_out_date:
+            changes.append(
+                f"Dates modifiées : {reservation.check_in_date.strftime('%d/%m/%Y')} - {reservation.check_out_date.strftime('%d/%m/%Y')}")
+        if old_guests != reservation.guest_count:
+            changes.append(f"Nombre de voyageurs : {reservation.guest_count}")
+
+        if changes:
+            EmailService.send_reservation_modified(reservation, changes)
+
+        return response
+
+    @action(detail=True, methods=['post'])
+    def cancel(self, request, pk=None):
+        """Annuler + email"""
+        reservation = self.get_object()
+
+        if not reservation.can_be_cancelled():
+            return Response(
+                {'error': 'Cette réservation ne peut pas être annulée'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+        reservation.status = 'cancelled'
+        reservation.save()
+
+        # Calculer le remboursement
+        days_before = (reservation.check_in_date - timezone.now().date()).days
+        if days_before >= 7:
+            refund_info = "vous serez remboursé intégralement"
+        else:
+            refund_info = "50% du montant vous sera remboursé"
+
+        EmailService.send_reservation_cancelled(reservation, refund_info)
+
+        serializer = self.get_serializer(reservation)
+        return Response(serializer.data)

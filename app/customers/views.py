@@ -1,3 +1,4 @@
+from app.emails.service import EmailService
 from rest_framework import mixins
 from rest_framework.viewsets import GenericViewSet
 
@@ -16,3 +17,13 @@ class CustomerViewSet(
     serializer_class =SerializerCustomers
     def get_queryset(self):
         return CustomerModel.objects.all()
+
+    def create(self, request, *args, **kwargs):
+        """Créer un client et envoyer email de bienvenue"""
+        response = super().create(request, *args, **kwargs)
+        customer = CustomerModel.objects.get(pk=response.data['id'])
+
+        # Envoyer email de bienvenue
+        EmailService.send_welcome_email(customer)
+
+        return response

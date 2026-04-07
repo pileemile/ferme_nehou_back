@@ -9,41 +9,47 @@
 
 <p>Nous sommes ravis de confirmer votre réservation à la Ferme de Néhou !</p>
 
+<!-- QR CODE -->
+<div style="text-align: center; margin: 30px 0;">
+    <img src="{{ qr_code }}" alt="QR Code" style="width: 200px; height: 200px; border: 2px solid #667eea; border-radius: 10px; padding: 10px;"/>
+    <p style="color: #666; font-size: 14px; margin-top: 10px;">Présentez ce QR code à votre arrivée</p>
+</div>
+
 <div class="info-box">
     <h3>📋 Détails de votre réservation</h3>
-    
+
     <div class="info-row">
         <span class="info-label">Numéro de réservation :</span>
         <span class="info-value">#{{ reservation_id }}</span>
     </div>
-    
+
     <div class="info-row">
         <span class="info-label">Chambre :</span>
         <span class="info-value">{{ room_name }}</span>
     </div>
-    
+
     <div class="info-row">
         <span class="info-label">Date d'arrivée :</span>
-        <span class="info-value">{{ check_in_date }}</span>
+        <span class="info-value">{{ check_in_date }} à partir de 15h00</span>
     </div>
-    
+
     <div class="info-row">
         <span class="info-label">Date de départ :</span>
-        <span class="info-value">{{ check_out_date }}</span>
+        <span class="info-value">{{ check_out_date }} avant 11h00</span>
     </div>
-    
+
     <div class="info-row">
         <span class="info-label">Nombre de nuits :</span>
         <span class="info-value">{{ number_of_nights }}</span>
     </div>
-    
+
     <div class="info-row">
         <span class="info-label">Nombre de voyageurs :</span>
         <span class="info-value">{{ guest_count }}</span>
     </div>
-    
+
     <div class="divider"></div>
-    
+
     <div class="info-row">
         <span class="info-label"><strong>Prix total :</strong></span>
         <span class="info-value"><strong>{{ total_price }} €</strong></span>
@@ -63,10 +69,24 @@
 {% endif %}
 
 <div class="info-box">
-    <h3>ℹ️ Informations pratiques</h3>
-    <p><strong>Arrivée :</strong> entre 15h00 et 20h00</p>
-    <p><strong>Départ :</strong> avant 11h00</p>
-    <p><strong>Adresse :</strong> La Ferme de Néhou, Gatteville Le Phare, 50760</p>
+    <h3>📍 Adresse et accès</h3>
+    <p><strong>La Ferme de Néhou</strong><br>
+    Hameau de Néhou<br>
+    50760 Gatteville-le-Phare, Normandie</p>
+    <p><strong>GPS :</strong> 49.6789° N, -1.2345° W</p>
+    <p>Parking gratuit disponible sur place.</p>
+</div>
+
+<div class="info-box">
+    <h3>🔑 Arrivée autonome</h3>
+    <p><strong>Horaires d'arrivée :</strong> entre 15h00 et 20h00</p>
+    <p><strong>Horaires de départ :</strong> avant 11h00</p>
+    <p>Le code du boîtier à clés vous sera envoyé par SMS le jour de votre arrivée.</p>
+</div>
+
+<div class="info-box">
+    <h3>❌ Politique d'annulation</h3>
+    <p>Annulation gratuite jusqu'à 7 jours avant l'arrivée. Au-delà, 50% du montant sera retenu.</p>
 </div>
 
 <p>Nous avons hâte de vous accueillir ! Si vous avez des questions, n'hésitez pas à nous contacter.</p>

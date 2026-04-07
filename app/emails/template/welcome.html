@@ -1,0 +1,42 @@
+{% extends "base_email.html" %}
+
+{% block title %}Bienvenue à la Ferme de Néhou{% endblock %}
+
+{% block content %}
+<h2>🎉 Bienvenue {{ customer_name }} !</h2>
+
+<p>Nous sommes ravis de vous compter parmi nous !</p>
+
+<p>Votre compte a été créé avec succès sur le site de la Ferme de Néhou, vos chambres d'hôtes de charme à Gatteville Le Phare en Normandie.</p>
+
+<div class="info-box">
+    <h3>✨ Découvrez nos chambres</h3>
+    <p>Entre terre et mer, à la pointe du Cotentin, nos trois chambres spacieuses vous offrent confort et authenticité dans un cadre exceptionnel.</p>
+    <p><strong>Chaque chambre</strong> possède sa propre décoration unique, mêlant influences locales et d'ailleurs, fruit de nos voyages et de notre attachement au Val de Saire.</p>
+</div>
+
+<div class="info-box">
+    <h3>🏡 Nos services</h3>
+    <ul style="margin: 0; padding-left: 20px;">
+        <li>Petit-déjeuner copieux et varié</li>
+        <li>Table d'hôtes avec produits locaux exclusivement</li>
+        <li>Espace sauna, jacuzzi et fitness</li>
+        <li>Prêt de vélos et location de kayaks</li>
+        <li>Jardin avec brasero pour admirer le coucher de soleil</li>
+    </ul>
+</div>
+
+<div class="info-box">
+    <h3>📍 Localisation idéale</h3>
+    <p>À proximité immédiate du GR 223, à distance à pied du Phare de Gatteville et de Barfleur (plus beau village de France), et à quelques minutes de Saint-Vaast-la-Hougue (Site UNESCO).</p>
+</div>
+
+<a href="https://lafermedenehou.com/chambres" class="button">
+    Découvrir nos chambres
+</a>
+
+<p>N'hésitez pas à nous contacter si vous avez la moindre question !</p>
+
+<p>Au plaisir de vous accueillir bientôt,<br>
+<strong>L'équipe de la Ferme de Néhou</strong></p>
+{% endblock %}
