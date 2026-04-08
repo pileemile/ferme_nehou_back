@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d8029c-d282-4b95-bfd1-eba5debcf98b" name="Changes" comment="add initial HTML templates for email notifications">
-      <change afterPath="$PROJECT_DIR$/app/emails/template/reservation_modified.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/emails/template/thank_you.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/emails/template/welcome.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/emails/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/projet_ferme_nehou_back.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/projet_ferme_nehou_back.iml" afterDir="false" />
+    <list default="true" id="70d8029c-d282-4b95-bfd1-eba5debcf98b" name="Changes" comment="✅ **Email de bienvenue** à l'inscription&#10;&#10;✅ **Email de confirmation de réservation** (avec détails, QR code)&#10;&#10;✅ **Email de rappel** 3 jours avant l'arrivée&#10;&#10;✅ **Email de remerciement** après le séjour&#10;&#10;✅ **Email de demande d'avis** 2 jours après le départ&#10;&#10;✅ **Email admin** à chaque nouvelle réservation&#10;&#10;✅ **Email de modification/annulation** de réservation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/customers/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/customers/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/emails/service.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/emails/service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/emails/template/reservation_confirmation.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/emails/template/reservation_confirmation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/reservation/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/reservation/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,8 +23,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Dockerfile" />
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -205,7 +197,7 @@
       <workItem from="1773845509022" duration="1197000" />
       <workItem from="1775327596686" duration="749000" />
       <workItem from="1775328583880" duration="2784000" />
-      <workItem from="1775571931421" duration="2246000" />
+      <workItem from="1775571931421" duration="6581000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -367,7 +359,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772034186386</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="✅ **Email de bienvenue** à l'inscription&#10;&#10;✅ **Email de confirmation de réservation** (avec détails, QR code)&#10;&#10;✅ **Email de rappel** 3 jours avant l'arrivée&#10;&#10;✅ **Email de remerciement** après le séjour&#10;&#10;✅ **Email de demande d'avis** 2 jours après le départ&#10;&#10;✅ **Email admin** à chaque nouvelle réservation&#10;&#10;✅ **Email de modification/annulation** de réservation">
+      <option name="closed" value="true" />
+      <created>1775574508408</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1775574508408</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -404,7 +404,8 @@
     <MESSAGE value="✅ **CRUD complet** pour les amenities&#10;&#10;✅  **Endpoint** : GET `/api/rooms/{id}/amenities/` (liste des équipements d'une chambre)&#10;&#10;✅ **Filtre de recherche** : chercher des chambres par équipements" />
     <MESSAGE value="✅ **Ajout de la validation et du middleware de limitation de taux**&#10;- Implémentation d'un middleware pour gérer les limitations de requêtes.&#10;- Ajout de validateurs pour les champs de modèle (email, téléphone, capacité, prix).&#10;- Nettoyage des entrées utilisateur dans les sérialiseurs." />
     <MESSAGE value="add initial HTML templates for email notifications" />
-    <option name="LAST_COMMIT_MESSAGE" value="add initial HTML templates for email notifications" />
+    <MESSAGE value="✅ **Email de bienvenue** à l'inscription&#10;&#10;✅ **Email de confirmation de réservation** (avec détails, QR code)&#10;&#10;✅ **Email de rappel** 3 jours avant l'arrivée&#10;&#10;✅ **Email de remerciement** après le séjour&#10;&#10;✅ **Email de demande d'avis** 2 jours après le départ&#10;&#10;✅ **Email admin** à chaque nouvelle réservation&#10;&#10;✅ **Email de modification/annulation** de réservation" />
+    <option name="LAST_COMMIT_MESSAGE" value="✅ **Email de bienvenue** à l'inscription&#10;&#10;✅ **Email de confirmation de réservation** (avec détails, QR code)&#10;&#10;✅ **Email de rappel** 3 jours avant l'arrivée&#10;&#10;✅ **Email de remerciement** après le séjour&#10;&#10;✅ **Email de demande d'avis** 2 jours après le départ&#10;&#10;✅ **Email admin** à chaque nouvelle réservation&#10;&#10;✅ **Email de modification/annulation** de réservation" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
