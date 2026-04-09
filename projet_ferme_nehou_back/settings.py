@@ -72,7 +72,8 @@ INSTALLED_APPS = [
     'app.reservationActivity.apps.ReservationActivityConfig',
     'app.reviews.apps.ReviewsConfig',
     'app.photo.apps.PhotoConfig',
-    'app.authentification.apps.AuthentificationConfig'
+    'app.authentification.apps.AuthentificationConfig',
+    'app.notifications'
 ]
 
 AUTH_USER_MODEL = 'authentification.User'
@@ -250,3 +251,24 @@ ADMIN_EMAIL = env('ADMIN_EMAIL', default='contact@fermedenehou.com')
 # Pour le développement : afficher les emails dans la console
 if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+CELERY_BROKER_URL = env('CELERY_BROKER_URL', default='redis://localhost:6379/0')
+CELERY_RESULT_BACKEND = env('CELERY_RESULT_BACKEND', default='redis://localhost:6379/0')
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Europe/Paris'
+CELERY_TASK_TRACK_STARTED = True
+CELERY_TASK_TIME_LIMIT = 30 * 60  # 30 minutes
+
+# Stocker les résultats dans la BDD Django
+CELERY_RESULT_BACKEND = 'django-db'
+CELERY_CACHE_BACKEND = 'django-cache'
+
+# Redis Cache
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+        'LOCATION': env('REDIS_URL', default='redis://127.0.0.1:6379/1'),
+    }
+}

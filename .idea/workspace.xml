@@ -5,13 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70d8029c-d282-4b95-bfd1-eba5debcf98b" name="Changes" comment="✅ **Email de bienvenue** à l'inscription&#10;&#10;✅ **Email de confirmation de réservation** (avec détails, QR code)&#10;&#10;✅ **Email de rappel** 3 jours avant l'arrivée&#10;&#10;✅ **Email de remerciement** après le séjour&#10;&#10;✅ **Email de demande d'avis** 2 jours après le départ&#10;&#10;✅ **Email admin** à chaque nouvelle réservation&#10;&#10;✅ **Email de modification/annulation** de réservation">
+      <change afterPath="$PROJECT_DIR$/app/celery.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/notifications/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/notifications/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/notifications/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/notifications/serializers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/notifications/services.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/notifications/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/notifications/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/tasks.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projet_ferme_nehou_back/celery.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/taks.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ferme_nehou_back/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ferme_nehou_back/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ferme_nehou_back/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ferme_nehou_back/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_C:/Users/emile/Desktop/projet_ferme_nehou/projet_ferme_nehou_back" value="34yE7ECkuzuIS6wFhN03WnDC4je" />
+    </persistenceIdMap>
   </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
@@ -197,7 +217,11 @@
       <workItem from="1773845509022" duration="1197000" />
       <workItem from="1775327596686" duration="749000" />
       <workItem from="1775328583880" duration="2784000" />
-      <workItem from="1775571931421" duration="6581000" />
+      <workItem from="1775571931421" duration="6616000" />
+      <workItem from="1775743425197" duration="1771000" />
+      <workItem from="1775745808368" duration="100000" />
+      <workItem from="1775745941666" duration="461000" />
+      <workItem from="1775746434959" duration="1772000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -367,7 +391,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775574508408</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="✅ **Email de bienvenue** à l'inscription&#10;&#10;✅ **Email de confirmation de réservation** (avec détails, QR code)&#10;&#10;✅ **Email de rappel** 3 jours avant l'arrivée&#10;&#10;✅ **Email de remerciement** après le séjour&#10;&#10;✅ **Email de demande d'avis** 2 jours après le départ&#10;&#10;✅ **Email admin** à chaque nouvelle réservation&#10;&#10;✅ **Email de modification/annulation** de réservation">
+      <option name="closed" value="true" />
+      <created>1775659664825</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1775659664825</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
