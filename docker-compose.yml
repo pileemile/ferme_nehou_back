@@ -2,17 +2,6 @@ services:
   db:
     image: postgres:15
     environment:
-      POSTGRES_USER: "root"
-      POSTGRES_PASSWORD: "root"
-      POSTGRES_DB: "ferme_nehou"
-    ports:
-      - "5436:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-
-  db:
-    image: postgres:15
-    environment:
       POSTGRES_DB: ${POSTGRES_DB:-ferme_nehou}
       POSTGRES_USER: ${POSTGRES_USER:-root}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-root}
@@ -37,15 +26,14 @@ services:
     ports:
       - "8080:8080"
     environment:
-      DJANGO_SECRET_KEY: your-secret-key
-      DJANGO_DEBUG: "True"
-      DJANGO_ALLOWED_HOSTS: "localhost,127.0.0.1"
-      POSTGRES_DB: ferme_nehou
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: root
-      POSTGRES_HOST: db
-      POSTGRES_PORT: 5432
-
+      - DJANGO_SECRET_KEY=your-secret-key
+      - DJANGO_DEBUG=True
+      - DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1
+      - DJANGO_SETTINGS_MODULE=projet_ferme_nehou_back.settings
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_HOST=db
+      - POSTGRES_PORT=5432
     depends_on:
       - db
 
