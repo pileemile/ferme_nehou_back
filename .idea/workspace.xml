@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d8029c-d282-4b95-bfd1-eba5debcf98b" name="Changes" comment="Configuration email&#10;✅ **Configuration SMTP** dans settings.py&#10;&#10;✅ **Templates email** en HTML">
-      <change beforePath="$PROJECT_DIR$/.idea/projet_ferme_nehou_back.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/projet_ferme_nehou_back.iml" afterDir="false" />
+    <list default="true" id="70d8029c-d282-4b95-bfd1-eba5debcf98b" name="Changes" comment="Update project configuration files for email setup and improve workspace settings">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/reservation/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/reservation/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +196,9 @@
       <workItem from="1775746434959" duration="1832000" />
       <workItem from="1775812152504" duration="3221000" />
       <workItem from="1775852280947" duration="104000" />
-      <workItem from="1775854884716" duration="904000" />
+      <workItem from="1775854884716" duration="1088000" />
+      <workItem from="1775934643256" duration="711000" />
+      <workItem from="1776012104304" duration="2274000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -382,7 +384,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775748281352</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Update project configuration files for email setup and improve workspace settings">
+      <option name="closed" value="true" />
+      <created>1775855961807</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1775855961807</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -421,7 +431,8 @@
     <MESSAGE value="add initial HTML templates for email notifications" />
     <MESSAGE value="✅ **Email de bienvenue** à l'inscription&#10;&#10;✅ **Email de confirmation de réservation** (avec détails, QR code)&#10;&#10;✅ **Email de rappel** 3 jours avant l'arrivée&#10;&#10;✅ **Email de remerciement** après le séjour&#10;&#10;✅ **Email de demande d'avis** 2 jours après le départ&#10;&#10;✅ **Email admin** à chaque nouvelle réservation&#10;&#10;✅ **Email de modification/annulation** de réservation" />
     <MESSAGE value="Add notification system with Celery tasks and models" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add notification system with Celery tasks and models" />
+    <MESSAGE value="Update project configuration files for email setup and improve workspace settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update project configuration files for email setup and improve workspace settings" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>

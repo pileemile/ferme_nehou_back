@@ -6,6 +6,7 @@ from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
 
 from app.emails.service import EmailService
+from app.notifications.services import NotificationService
 from app.permissions import IsOwnerOrAdmin
 from app.reservation.models import Reservation
 from app.reservation.serializers import ReservationSerializer
@@ -69,6 +70,13 @@ class ReservationViewSet(
 
         EmailService.send_admin_new_reservation(reservation)
 
+        # Lancer les tâches en arrière-plan avec Celery
+        send_reservation_confirmation_async.delay(reservation.id)
+        send_admin_notification_async.delay(reservation.id)
+
+        # Créer notification in-app
+        NotificationService.notify_reservation_confirmed(reservation)
+
         return response
 
     @action(detail=True, methods=['post'])
@@ -85,8 +93,21 @@ class ReservationViewSet(
         reservation.status = 'cancelled'
         reservation.save()
 
-        refund_info = "vous serez remboursé intégralement"
-        EmailService.send_reservation_cancelled(reservation, refund_info)
+        days_before = (reservation.check_in_date - timezone.now().date()).days
+        if days_before >= 7:
+            refund_info = "vous serez remboursé intégralement"
+        else:
+            refund_info = "50% du montant vous sera remboursé"
+
+        # Lancer en arrière-plan
+        from celery import current_app
+        current_app.send_task(
+            'app.tasks.send_cancellation_email',
+            args=[reservation.id, refund_info]
+        )
+
+        # Notification in-app (immédiate)
+        NotificationService.notify_reservation_cancelled(reservation)
 
         serializer = self.get_serializer(reservation)
         return Response(serializer.data)
