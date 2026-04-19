@@ -1,0 +1,62 @@
+name: Django CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "**" ]  # Se déclenche sur toutes les branches
+  pull_request:
+    branches: [ "**" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    # On définit des variables d'environnement (ex: base de données, clé secrète de test)
+    env:
+      SECRET_KEY: "temporary-secret-key-for-tests"
+      DEBUG: "True"
+
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [3.11, 3.12]
+
+    steps:
+    - name: 1. Récupération du code
+      uses: actions/checkout@v4
+
+    - name: 2. Setup Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+        cache: 'pip' # Cache les dépendances pour aller plus vite
+
+    - name: 3. Installation des dépendances
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install flake8 bandit # Outils de qualité et sécurité
+
+    - name: 4. Vérification du style (Linting)
+      run: |
+        # On vérifie les erreurs de syntaxe et le respect de la PEP8
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+
+    - name: 5. Scan de sécurité (Static Analysis)
+      run: |
+        # Vérifie si tu n'as pas laissé de failles de sécurité évidentes
+        bandit -r . -x ./tests
+
+    - name: 6. Vérifications Django (Check)
+      run: |
+        # Vérifie les erreurs de configuration Django sans lancer le serveur
+        python manage.py check
+
+    - name: 7. Exécution des Tests
+      run: |
+        # Lance tes tests unitaires
+        python manage.py test
+
+    - name: 8. Build Check
+      run: |
+        echo "Le build est terminé avec succès pour la branche ${{ github.ref }}"
