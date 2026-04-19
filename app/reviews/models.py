@@ -32,7 +32,7 @@ class Review(models.Model):
         has_validation_reservation = Reservation.objects.filter(
             client = self.client,
             room = self.room,
-            status__in=['pending', 'confirmed']
+            status__in=['confirmed', 'completed']
         ).exists()
 
         if not has_validation_reservation:
@@ -58,4 +58,4 @@ class Review(models.Model):
             raise ValidationError(errors)
     def save(self, *args, **kwargs):
         self.full_clean()
-        super.save(*args, **kwargs)
+        super().save(*args, **kwargs)

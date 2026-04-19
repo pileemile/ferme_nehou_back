@@ -1,0 +1,41 @@
+{% extends "base_email.html" %}
+
+{% block title %}Annulation de réservation - Ferme de Néhou{% endblock %}
+
+{% block content %}
+<h2>❌ Votre réservation a été annulée</h2>
+
+<p>Bonjour {{ customer_name }},</p>
+
+<p>Nous vous confirmons l'annulation de votre réservation.</p>
+
+<div class="info-box">
+    <h3>📋 Détails de la réservation annulée</h3>
+    
+    <div class="info-row">
+        <span class="info-label">Numéro :</span>
+        <span class="info-value">#{{ reservation_id }}</span>
+    </div>
+    
+    <div class="info-row">
+        <span class="info-label">Chambre :</span>
+        <span class="info-value">{{ room_name }}</span>
+    </div>
+    
+    <div class="info-row">
+        <span class="info-label">Dates :</span>
+        <span class="info-value">{{ check_in_date }} - {{ check_out_date }}</span>
+    </div>
+</div>
+
+<p>Selon notre politique d'annulation, {{ refund_info }}.</p>
+
+<p>Nous espérons vous accueillir prochainement à la Ferme de Néhou !</p>
+
+<a href="https://lafermedenehou.com" class="button">
+    Réserver à nouveau
+</a>
+
+<p>Cordialement,<br>
+<strong>L'équipe de la Ferme de Néhou</strong></p>
+{% endblock %}

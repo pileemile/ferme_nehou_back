@@ -5,7 +5,13 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 
-from app.authentification.serializers import RegisterSerializer, UserSerializer, LoginSerializer
+from app.authentification.serializers import (
+    AdminRegisterSerializer,
+    LoginSerializer,
+    RegisterSerializer,
+    UserSerializer,
+)
+from app.permissions import IsAdminUser
 
 User = get_user_model()
 
@@ -25,6 +31,22 @@ class RegisterView(generics.CreateAPIView):
             'user' : UserSerializer(user).data,
             'refresh' : str(refresh),
             'access' : str(refresh.access_token)
+        }, status=status.HTTP_201_CREATED)
+
+
+class AdminRegisterView(generics.CreateAPIView):
+    queryset = User.objects.all()
+    permission_classes = (IsAuthenticated, IsAdminUser)
+    serializer_class = AdminRegisterSerializer
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.save()
+
+        return Response({
+            'user': UserSerializer(user).data,
+            'message': 'Compte administrateur créé avec succès.'
         }, status=status.HTTP_201_CREATED)
 
 class LoginView(APIView):

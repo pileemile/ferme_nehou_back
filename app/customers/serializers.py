@@ -10,6 +10,7 @@ class SerializerCustomers(serializers.ModelSerializer):
         model = CustomerModel
         fields = [
             'id',
+            'user',
             'first_name',
             'last_name',
             'email',
@@ -17,7 +18,7 @@ class SerializerCustomers(serializers.ModelSerializer):
             'address',
             'created_at',
         ]
-        read_only_fields = ['created_at']
+        read_only_fields = ['id', 'user', 'created_at']
 
     def validate_email(self, value):
         """Validation et nettoyage de l'email"""

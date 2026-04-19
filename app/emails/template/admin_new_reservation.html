@@ -1,0 +1,58 @@
+{% extends "base_email.html" %}
+
+{% block title %}Nouvelle réservation - Ferme de Néhou{% endblock %}
+
+{% block content %}
+<h2>🔔 Nouvelle réservation !</h2>
+
+<p>Une nouvelle réservation vient d'être effectuée.</p>
+
+<div class="info-box">
+    <h3>👤 Client</h3>
+    <div class="info-row">
+        <span class="info-label">Nom :</span>
+        <span class="info-value">{{ customer_name }}</span>
+    </div>
+    <div class="info-row">
+        <span class="info-label">Email :</span>
+        <span class="info-value">{{ customer_email }}</span>
+    </div>
+    <div class="info-row">
+        <span class="info-label">Téléphone :</span>
+        <span class="info-value">{{ customer_phone }}</span>
+    </div>
+</div>
+
+<div class="info-box">
+    <h3>📋 Réservation</h3>
+    <div class="info-row">
+        <span class="info-label">Numéro :</span>
+        <span class="info-value">#{{ reservation_id }}</span>
+    </div>
+    <div class="info-row">
+        <span class="info-label">Chambre :</span>
+        <span class="info-value">{{ room_name }}</span>
+    </div>
+    <div class="info-row">
+        <span class="info-label">Arrivée :</span>
+        <span class="info-value">{{ check_in_date }}</span>
+    </div>
+    <div class="info-row">
+        <span class="info-label">Départ :</span>
+        <span class="info-value">{{ check_out_date }}</span>
+    </div>
+    <div class="info-row">
+        <span class="info-label">Voyageurs :</span>
+        <span class="info-value">{{ guest_count }}</span>
+    </div>
+    <div class="divider"></div>
+    <div class="info-row">
+        <span class="info-label"><strong>Prix total :</strong></span>
+        <span class="info-value"><strong>{{ total_price }} €</strong></span>
+    </div>
+</div>
+
+<a href="https://lafermedenehou.com/admin/reservation/{{ reservation_id }}" class="button">
+    Voir dans l'admin
+</a>
+{% endblock %}
