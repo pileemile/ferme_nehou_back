@@ -36,7 +36,7 @@ class EmailService:
 
         # Récupérer les activités
         activities = []
-        for res_activity in reservation.reservationactivity_set.all():
+        for res_activity in reservation.activities.all():
             activities.append({
                 'name': res_activity.activity.name,
                 'quantity': res_activity.quantity,

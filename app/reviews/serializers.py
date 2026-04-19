@@ -3,6 +3,7 @@ from rest_framework import serializers
 from app.customers.serializers import SerializerCustomers
 from app.reservation.models import Reservation
 from app.reviews.models import Review
+from app.utils.customers import get_customer_for_user
 
 
 class SerializerReviews(serializers.ModelSerializer):
@@ -16,11 +17,12 @@ class SerializerReviews(serializers.ModelSerializer):
             'client_detail',
             'client_name',
             'room',
+            'reservation',
             'rating',
             'comment',
             'created_at',
         ]
-        read_only_fields = ['created_at']
+        read_only_fields = ['client', 'created_at']
 
     def get_client_name(self, obj):
         return f"{obj.client.first_name} {obj.client.last_name}"
@@ -31,6 +33,13 @@ class SerializerReviews(serializers.ModelSerializer):
         return value
     def validate(self, data):
         client = data.get('client')
+        if client is None:
+            if self.instance is not None:
+                client = self.instance.client
+            else:
+                request = self.context.get('request')
+                if request is not None:
+                    client = get_customer_for_user(request.user)
         room = data.get('room')
         reservation = data.get('reservation')
 

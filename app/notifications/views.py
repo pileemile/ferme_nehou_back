@@ -7,6 +7,7 @@ from django.utils import timezone
 
 from .models import Notification
 from .serializers import NotificationSerializer
+from app.utils.customers import get_customer_for_user
 
 
 class NotificationViewSet(
@@ -19,8 +20,10 @@ class NotificationViewSet(
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        # L'utilisateur ne voit que ses propres notifications
-        return Notification.objects.filter(user=self.request.user)
+        customer = get_customer_for_user(self.request.user)
+        if customer is None:
+            return Notification.objects.none()
+        return Notification.objects.filter(user=customer)
 
     @action(detail=False, methods=['get'])
     def unread(self, request):

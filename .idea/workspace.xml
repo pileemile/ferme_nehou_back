@@ -4,9 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d8029c-d282-4b95-bfd1-eba5debcf98b" name="Changes" comment="Update project configuration files for email setup and improve workspace settings">
+    <list default="true" id="70d8029c-d282-4b95-bfd1-eba5debcf98b" name="Changes" comment="Integrate notification system and async tasks for reservation confirmations and cancellations">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/authentification/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/authentification/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/authentification/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/authentification/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/authentification/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/authentification/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/authentification/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/authentification/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/customers/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/customers/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/customers/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/customers/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/customers/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/customers/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/emails/service.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/emails/service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/notifications/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notifications/services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/notifications/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notifications/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/permissions.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/permissions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/reservation/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/reservation/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/reservation/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/reservation/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/reviews/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/reviews/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/reviews/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/reviews/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/reviews/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/reviews/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/rooms/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/rooms/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ferme_nehou_back/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ferme_nehou_back/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,11 +36,14 @@
       <entry key="_C:/Users/emile/Desktop/projet_ferme_nehou/projet_ferme_nehou_back" value="34yE7ECkuzuIS6wFhN03WnDC4je" />
     </persistenceIdMap>
   </component>
+  <component name="CopilotUserSelectedChatMode">
+    <option name="chatModeId" value="Agent" />
+  </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="125" />
+    <option name="cachedIndexableFilesCount" value="132" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -88,14 +108,17 @@
     &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
     &quot;ai.playground.ignore.import.keys.banner.in.settings&quot;: &quot;true&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;features/emails&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/emile/Desktop/projet_ferme_nehou/projet_ferme_nehou_back/media/room_photos/chambre-1&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;ml.llm.AcpAgentsConfigurable&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -198,7 +221,10 @@
       <workItem from="1775852280947" duration="104000" />
       <workItem from="1775854884716" duration="1088000" />
       <workItem from="1775934643256" duration="711000" />
-      <workItem from="1776012104304" duration="2274000" />
+      <workItem from="1776012104304" duration="2816000" />
+      <workItem from="1776184313744" duration="6975000" />
+      <workItem from="1776605186566" duration="2012000" />
+      <workItem from="1776607885097" duration="609000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -392,7 +418,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775855961807</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Integrate notification system and async tasks for reservation confirmations and cancellations">
+      <option name="closed" value="true" />
+      <created>1776015914377</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1776015914377</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -432,7 +466,8 @@
     <MESSAGE value="✅ **Email de bienvenue** à l'inscription&#10;&#10;✅ **Email de confirmation de réservation** (avec détails, QR code)&#10;&#10;✅ **Email de rappel** 3 jours avant l'arrivée&#10;&#10;✅ **Email de remerciement** après le séjour&#10;&#10;✅ **Email de demande d'avis** 2 jours après le départ&#10;&#10;✅ **Email admin** à chaque nouvelle réservation&#10;&#10;✅ **Email de modification/annulation** de réservation" />
     <MESSAGE value="Add notification system with Celery tasks and models" />
     <MESSAGE value="Update project configuration files for email setup and improve workspace settings" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update project configuration files for email setup and improve workspace settings" />
+    <MESSAGE value="Integrate notification system and async tasks for reservation confirmations and cancellations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Integrate notification system and async tasks for reservation confirmations and cancellations" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
