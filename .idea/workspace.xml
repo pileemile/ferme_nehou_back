@@ -4,26 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d8029c-d282-4b95-bfd1-eba5debcf98b" name="Changes" comment="Integrate notification system and async tasks for reservation confirmations and cancellations">
+    <list default="true" id="70d8029c-d282-4b95-bfd1-eba5debcf98b" name="Changes" comment="Add customer profile management and enhance reservation handling">
+      <change afterPath="$PROJECT_DIR$/app/activity/filters.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/authentification/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/authentification/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/authentification/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/authentification/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/authentification/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/authentification/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/authentification/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/authentification/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/customers/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/customers/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/customers/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/customers/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/customers/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/customers/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/emails/service.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/emails/service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notifications/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notifications/services.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/notifications/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/notifications/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/permissions.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/permissions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/reservation/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/reservation/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/reservation/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/reservation/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/reviews/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/reviews/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/reviews/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/reviews/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/reviews/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/reviews/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/activity/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/activity/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/rooms/filter.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/rooms/filter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/rooms/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/rooms/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_ferme_nehou_back/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ferme_nehou_back/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +62,9 @@
     &quot;accountId&quot;: &quot;d3349b93-68c1-40c4-b9bd-20b1806ec6d9&quot;
   }
 }</component>
+  <component name="HttpClientEndpointsTabState">
+    <option name="cachedRequestData" value="&lt;CachedHttpClientTabRequests&gt;&#10;  &lt;entry key=&quot;8964d4bb0d2f39ff5be6367ec820d40716076d46&quot; value=&quot;###&amp;#10;GET http://localhost:8000/api/rooms/amenities&quot; /&gt;&#10;&lt;/CachedHttpClientTabRequests&gt;" />
+  </component>
   <component name="HttpClientOnboardingState">{
   &quot;isOnboardingCommentShown&quot;: true
 }</component>
@@ -94,39 +83,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;ai.playground.ignore.import.keys.banner.in.settings&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;features/emails&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/emile/Desktop/projet_ferme_nehou/projet_ferme_nehou_back/media/room_photos/chambre-1&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;ml.llm.AcpAgentsConfigurable&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "ai.playground.ignore.import.keys.banner.in.settings": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "features/emails",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "C:/Users/emile/Desktop/projet_ferme_nehou/projet_ferme_nehou_back/media/room_photos/chambre-1",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecapSpentCounter">
     <option name="endsOfQuotaMs" value="1776150073784" />
     <option name="spentUsd" value="0.0029185" />
@@ -224,7 +213,7 @@
       <workItem from="1776012104304" duration="2816000" />
       <workItem from="1776184313744" duration="6975000" />
       <workItem from="1776605186566" duration="2012000" />
-      <workItem from="1776607885097" duration="609000" />
+      <workItem from="1776607885097" duration="5054000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -426,7 +415,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776015914377</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Add customer profile management and enhance reservation handling">
+      <option name="closed" value="true" />
+      <created>1776608680578</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1776608680578</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -467,7 +464,8 @@
     <MESSAGE value="Add notification system with Celery tasks and models" />
     <MESSAGE value="Update project configuration files for email setup and improve workspace settings" />
     <MESSAGE value="Integrate notification system and async tasks for reservation confirmations and cancellations" />
-    <option name="LAST_COMMIT_MESSAGE" value="Integrate notification system and async tasks for reservation confirmations and cancellations" />
+    <MESSAGE value="Add customer profile management and enhance reservation handling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add customer profile management and enhance reservation handling" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
