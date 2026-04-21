@@ -1,5 +1,6 @@
 from django.utils import timezone
 from rest_framework import permissions
+from rest_framework.permissions import BasePermission
 
 from app.reservation.models import Reservation
 from app.utils.customers import get_customer_for_user

@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     "app.photo.apps.PhotoConfig",
     "app.authentification.apps.AuthentificationConfig",
     "app.notifications",
+    'app.stats',
 ]
 
 AUTH_USER_MODEL = "authentification.User"
