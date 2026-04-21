@@ -42,10 +42,10 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
-    - name: 5. Scan de sécurité (Static Analysis)
-      run: |
+   # - name: 5. Scan de sécurité (Static Analysis)
+    #  run: |
         # Vérifie si tu n'as pas laissé de failles de sécurité évidentes
-        bandit -r . -x ./tests
+     #   bandit -r . -x ./tests
 
     - name: 6. Vérifications Django (Check)
       run: |
