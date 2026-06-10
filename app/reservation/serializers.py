@@ -29,7 +29,7 @@ class ReservationSerializer(serializers.ModelSerializer):
             'created_at',
             'updated_at',
         ]
-        read_only_fields = ['total_price','created_at', 'updated_at']
+        read_only_fields = ['client', 'total_price', 'created_at', 'updated_at']
 
     def validate(self, data):
         check_in = data.get('check_in_date')

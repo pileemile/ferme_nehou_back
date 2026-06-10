@@ -1,0 +1,34 @@
+{% extends "base_email.html" %}
+
+{% block title %}Partagez votre expérience - Ferme de Néhou{% endblock %}
+
+{% block content %}
+<h2>⭐ Comment s'est passé votre séjour ?</h2>
+
+<p>Bonjour {{ customer_name }},</p>
+
+<p>Nous espérons que vous avez passé un excellent séjour à la Ferme de Néhou !</p>
+
+<p>Votre avis nous est très précieux et aide d'autres voyageurs à découvrir notre établissement.</p>
+
+<div class="info-box">
+    <h3>📋 Votre séjour</h3>
+    <div class="info-row">
+        <span class="info-label">Chambre :</span>
+        <span class="info-value">{{ room_name }}</span>
+    </div>
+    <div class="info-row">
+        <span class="info-label">Dates :</span>
+        <span class="info-value">{{ check_in_date }} - {{ check_out_date }}</span>
+    </div>
+</div>
+
+<p>Pourriez-vous prendre quelques minutes pour partager votre expérience ?</p>
+
+<a href="https://lafermedenehou.com/reviews/new?reservation={{ reservation_id }}" class="button">
+    Laisser un avis
+</a>
+
+<p>Merci beaucoup pour votre confiance !<br>
+<strong>L'équipe de la Ferme de Néhou</strong></p>
+{% endblock %}

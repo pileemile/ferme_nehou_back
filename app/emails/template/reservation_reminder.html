@@ -1,0 +1,51 @@
+{% extends "base_email.html" %}
+
+{% block title %}Rappel : Votre séjour approche - Ferme de Néhou{% endblock %}
+
+{% block content %}
+<h2>🗓️ Votre séjour arrive bientôt !</h2>
+
+<p>Bonjour {{ customer_name }},</p>
+
+<p>Nous avons hâte de vous accueillir dans quelques jours à la Ferme de Néhou !</p>
+
+<div class="info-box">
+    <h3>📋 Rappel de votre réservation</h3>
+    
+    <div class="info-row">
+        <span class="info-label">Arrivée :</span>
+        <span class="info-value">{{ check_in_date }} entre 15h00 et 20h00</span>
+    </div>
+    
+    <div class="info-row">
+        <span class="info-label">Départ :</span>
+        <span class="info-value">{{ check_out_date }} avant 11h00</span>
+    </div>
+    
+    <div class="info-row">
+        <span class="info-label">Chambre :</span>
+        <span class="info-value">{{ room_name }}</span>
+    </div>
+</div>
+
+<div class="info-box">
+    <h3>🗺️ Comment nous trouver</h3>
+    <p><strong>Adresse :</strong> La Ferme de Néhou, Gatteville Le Phare, 50760</p>
+    <p><strong>GPS :</strong> 49.6789° N, -1.2345° W</p>
+    <p>Parking gratuit disponible sur place.</p>
+</div>
+
+<div class="info-box">
+    <h3>🔑 Arrivée autonome</h3>
+    <p>Le code du boîtier à clés vous sera envoyé par SMS le jour de votre arrivée.</p>
+</div>
+
+<p>N'hésitez pas à nous contacter si vous avez des questions !</p>
+
+<a href="tel:+33612345678" class="button">
+    Nous appeler
+</a>
+
+<p>À très bientôt,<br>
+<strong>L'équipe de la Ferme de Néhou</strong></p>
+{% endblock %}
