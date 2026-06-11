@@ -38,7 +38,32 @@ class ReviewViewSet(
 
     @action(detail=False, methods=['get'])
     def recent(self, request):
-        limit = request.query_params.get('limit', 10)
-        reviews = self.get_queryset()[:int(limit)]
-        serializer = self.get_serializer(reviews, many=True)
-        return Response(serializer.data)
+      """
+      GET /api/reviews/recent/?limit=10&room_id=1
+
+      Retourne les derniers avis
+      Paramètres :
+      - limit : nombre d'avis (défaut: 10, max: 50)
+      - room_id : filtrer par chambre (optionnel)
+      """
+      limit = int(request.query_params.get('limit', 10))
+      room_id = request.query_params.get('room_id')
+
+      if limit > 50:
+        limit = 50
+
+      queryset = self.get_queryset().order_by('-created_at')
+
+      # Filtrer par chambre si spécifié
+      if room_id:
+        queryset = queryset.filter(room_id=room_id)
+
+      reviews = queryset[:limit]
+      serializer = self.get_serializer(reviews, many=True, context={'request': request})
+
+      return Response({
+        'limit': limit,
+        'room_id': room_id,
+        'count': len(serializer.data),
+        'reviews': serializer.data
+      })
