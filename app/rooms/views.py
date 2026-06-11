@@ -16,8 +16,7 @@ from app.reviews.models import Review
 from app.reviews.serializers import SerializerReviews
 from app.rooms.filter import RoomFilter
 from app.rooms.models import RoomModel
-from app.rooms.serializers import AmenitySerializer, SerializerRooms
-
+from app.rooms.serializers import AmenitySerializer, SerializerRooms, SerializerRoomsDetail
 
 class RoomViewSet(
     GenericViewSet,
@@ -36,7 +35,7 @@ class RoomViewSet(
             "list",
             "retrieve",
             "search",
-            "available",  # ← AJOUTÉ
+            "available",
             "availability",
             "calendar",
             "average_rating",
@@ -465,3 +464,43 @@ class RoomViewSet(
                 "amenities": serializer.data,
             }
         )
+
+    @action(detail=False, methods=['get'])
+    def featured(self, request):
+      """
+      GET /api/rooms/featured/
+
+      Retourne les chambres mises en avant :
+      - Disponibles
+      - Triées par note moyenne (meilleures en premier)
+      - Avec toutes les infos enrichies
+
+      Paramètre optionnel : ?limit=3 (défaut: 3)
+      """
+      from django.db.models import Avg, Count
+
+      limit = int(request.query_params.get('limit', 3))
+      if limit > 10:
+        limit = 10  # Maximum 10
+
+      # Chambres disponibles triées par note moyenne
+      featured_rooms = RoomModel.objects.filter(
+        available=True
+      ).annotate(
+        avg_rating=Avg('reviews__rating'),
+        reviews_count=Count('reviews')
+      ).prefetch_related('amenities', 'photos').order_by(
+        '-avg_rating',  # Meilleures notes en premier
+        '-reviews_count',  # Plus d'avis en cas d'égalité
+      )[:limit]
+
+      serializer = SerializerRoomsDetail(
+        featured_rooms,
+        many=True,
+        context={'request': request}
+      )
+
+      return Response({
+        'count': len(serializer.data),
+        'featured_rooms': serializer.data
+      })
