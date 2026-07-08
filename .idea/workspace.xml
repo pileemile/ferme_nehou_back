@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70d8029c-d282-4b95-bfd1-eba5debcf98b" name="Changes" comment="Add workspace configuration, local settings, and documentation for project architecture and workflows">
-      <change beforePath="$PROJECT_DIR$/.idea/projet_ferme_nehou_back.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/projet_ferme_nehou_back.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/cache.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/pagination.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/reviews/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/reviews/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/rooms/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/rooms/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/rooms/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/rooms/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_ferme_nehou_back/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ferme_nehou_back/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +30,7 @@
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="140" />
+    <option name="cachedIndexableFilesCount" value="141" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -75,61 +75,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0181928059374104" />
-      <entry key="MS500" value="2.2977449017979907" />
-      <entry key="S2" value="6.064182596396591" />
-      <entry key="S5" value="8.915914619013638" />
-      <entry key="S10" value="12.011942003076948" />
-      <entry key="S30" value="19.24607210785112" />
-      <entry key="S60" value="30.419074318054193" />
-      <entry key="M2" value="46.52723126356002" />
-      <entry key="M5" value="65.03171992712142" />
-      <entry key="M10" value="73.67714184978344" />
-      <entry key="M15" value="76.91581686403828" />
-      <entry key="M30" value="80.35246241259502" />
-      <entry key="H1" value="82.14902849820962" />
-      <entry key="H2" value="83.06760537008115" />
-      <entry key="H4" value="83.53206174443004" />
-      <entry key="D1" value="83.92176731963981" />
-      <entry key="W1" value="83.98881793712457" />
+      <entry key="MS100" value="1.1717106677329734" />
+      <entry key="MS500" value="2.8825026032318295" />
+      <entry key="S2" value="4.286087828606163" />
+      <entry key="S5" value="4.69497151988225" />
+      <entry key="S10" value="4.844020738594018" />
+      <entry key="S30" value="4.947220833408815" />
+      <entry key="S60" value="4.99331582223499" />
+      <entry key="M2" value="6.3624111068107645" />
+      <entry key="M5" value="24.157253530853705" />
+      <entry key="M10" value="51.92711250618198" />
+      <entry key="M15" value="68.38567265249705" />
+      <entry key="M30" value="90.70411391364809" />
+      <entry key="H1" value="104.6951444550889" />
+      <entry key="H2" value="112.53554333737786" />
+      <entry key="H4" value="116.68671556129912" />
+      <entry key="D1" value="120.2695928667923" />
+      <entry key="W1" value="120.89537027412455" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="3.12344E-318" />
-      <entry key="MS500" value="3.154470971541509E-64" />
-      <entry key="S2" value="1.3407428861492443E-16" />
-      <entry key="S5" value="5.044114813656456E-7" />
-      <entry key="S10" value="9.087572373065163E-4" />
-      <entry key="S30" value="0.1496150680385081" />
-      <entry key="S60" value="0.5450557243592213" />
-      <entry key="M2" value="1.0431398534382246" />
-      <entry key="M5" value="1.5412055302600014" />
-      <entry key="M10" value="1.7556159943305365" />
-      <entry key="M15" value="1.8335503958785044" />
-      <entry key="M30" value="1.914959853182584" />
-      <entry key="H1" value="1.9570160934805603" />
-      <entry key="H2" value="1.9783908146608762" />
-      <entry key="H4" value="1.9891659385485552" />
-      <entry key="D1" value="1.998190216488078" />
-      <entry key="W1" value="1.9997413587490647" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="3.490270258626289E-123" />
+      <entry key="S5" value="1.172169415474164E-49" />
+      <entry key="S10" value="4.380771424954239E-25" />
+      <entry key="S30" value="1.1731212582688755E-8" />
+      <entry key="S60" value="1.5262465325376062E-4" />
+      <entry key="M2" value="0.017455585902984384" />
+      <entry key="M5" value="0.300121643302249" />
+      <entry key="M10" value="0.7747256005070637" />
+      <entry key="M15" value="1.0627679206986085" />
+      <entry key="M30" value="1.4579158796429301" />
+      <entry key="H1" value="1.707578954161606" />
+      <entry key="H2" value="1.848014120122054" />
+      <entry key="H4" value="1.9225055981292511" />
+      <entry key="D1" value="1.986870651573004" />
+      <entry key="W1" value="1.9981190798901898" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9832761433651463" />
-      <entry key="MS500" value="2.2796947625819173" />
-      <entry key="S2" value="6.05185834017856" />
-      <entry key="S5" value="8.908430249307544" />
-      <entry key="S10" value="12.007467733635021" />
-      <entry key="S30" value="19.388762422783163" />
-      <entry key="S60" value="30.953976971299383" />
-      <entry key="M2" value="47.56055046595931" />
-      <entry key="M5" value="66.56689564218989" />
-      <entry key="M10" value="75.4292622491822" />
-      <entry key="M15" value="78.7469177123909" />
-      <entry key="M30" value="82.26613451685633" />
-      <entry key="H1" value="84.1053843036333" />
-      <entry key="H2" value="85.04566185063163" />
-      <entry key="H4" value="85.52105945737719" />
-      <entry key="D1" value="85.91992935056251" />
-      <entry key="W1" value="85.98855526572818" />
+      <entry key="MS100" value="1.0819418646558352" />
+      <entry key="MS500" value="2.838229459993219" />
+      <entry key="S2" value="4.269093692601723" />
+      <entry key="S5" value="4.687464476021723" />
+      <entry key="S10" value="4.840137094864194" />
+      <entry key="S30" value="4.945896183261235" />
+      <entry key="S60" value="4.992795349975831" />
+      <entry key="M2" value="6.379261691235737" />
+      <entry key="M5" value="24.455606446680104" />
+      <entry key="M10" value="52.69971884914855" />
+      <entry key="M15" value="69.44653320730995" />
+      <entry key="M30" value="92.16073842675377" />
+      <entry key="H1" value="106.40197134893752" />
+      <entry key="H2" value="114.383151546856" />
+      <entry key="H4" value="118.6090102840508" />
+      <entry key="D1" value="122.256427232307" />
+      <entry key="W1" value="122.89348414183237" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -139,43 +139,59 @@
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="34yE7ECkuzuIS6wFhN03WnDC4je" />
+  <component name="ProjectSessionTemplates">
+    <option name="panelTemplate">
+      <template>
+        <option name="modeId" value="Agent" />
+        <option name="model">
+          <model>
+            <option name="modelType" value="builtin_id" />
+            <option name="modelValue" value="auto" />
+          </model>
+        </option>
+        <option name="targetType" value="BACKGROUND" />
+        <option name="worktreeMode" value="WORKSPACE" />
+      </template>
+    </option>
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "ai.playground.ignore.import.keys.banner.in.settings": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "features/endpoint-enriched",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "C:/Users/emile/Desktop/projet_ferme_nehou/projet_ferme_nehou_back/media/room_photos/chambre-1",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;ai.playground.ignore.import.keys.banner.in.settings&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;copilot.chat.legacySessionMetadata.migrated&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/emile/Desktop/projet_ferme_nehou/projet_ferme_nehou_back/media/room_photos/chambre-1&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecapSpentCounter">
     <option name="endsOfQuotaMs" value="1776150073784" />
     <option name="spentUsd" value="0.0029185" />
@@ -216,7 +232,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-c59985aa861c-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.24374.152" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-PY-261.25134.203" />
+        <option value="bundled-python-sdk-245168a56dbd-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.25134.203" />
       </set>
     </attachedChunks>
   </component>
@@ -277,6 +294,11 @@
       <workItem from="1776790743036" duration="51000" />
       <workItem from="1776791046426" duration="3539000" />
       <workItem from="1781161937825" duration="2119000" />
+      <workItem from="1782718921490" duration="829000" />
+      <workItem from="1782719802246" duration="414000" />
+      <workItem from="1782806015368" duration="1147000" />
+      <workItem from="1783283198768" duration="621000" />
+      <workItem from="1783543826457" duration="2415000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
