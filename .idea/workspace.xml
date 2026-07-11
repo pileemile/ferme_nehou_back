@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d8029c-d282-4b95-bfd1-eba5debcf98b" name="Changes" comment="Add workspace configuration, local settings, and documentation for project architecture and workflows">
-      <change afterPath="$PROJECT_DIR$/app/cache.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/pagination.py" afterDir="false" />
+    <list default="true" id="70d8029c-d282-4b95-bfd1-eba5debcf98b" name="Changes" comment="Add caching and pagination for room and review endpoints with custom implementations">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_ferme_nehou_back/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/projet_ferme_nehou_back/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/activity/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/activity/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/reservation/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/reservation/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +28,7 @@
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="141" />
+    <option name="cachedIndexableFilesCount" value="144" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -75,61 +73,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.1717106677329734" />
-      <entry key="MS500" value="2.8825026032318295" />
-      <entry key="S2" value="4.286087828606163" />
-      <entry key="S5" value="4.69497151988225" />
-      <entry key="S10" value="4.844020738594018" />
-      <entry key="S30" value="4.947220833408815" />
-      <entry key="S60" value="4.99331582223499" />
-      <entry key="M2" value="6.3624111068107645" />
-      <entry key="M5" value="24.157253530853705" />
-      <entry key="M10" value="51.92711250618198" />
-      <entry key="M15" value="68.38567265249705" />
-      <entry key="M30" value="90.70411391364809" />
-      <entry key="H1" value="104.6951444550889" />
-      <entry key="H2" value="112.53554333737786" />
-      <entry key="H4" value="116.68671556129912" />
-      <entry key="D1" value="120.2695928667923" />
-      <entry key="W1" value="120.89537027412455" />
+      <entry key="MS100" value="1.1928665623770458" />
+      <entry key="MS500" value="4.376248278393355" />
+      <entry key="S2" value="8.89126499208335" />
+      <entry key="S5" value="10.599282774685323" />
+      <entry key="S10" value="11.27009676577782" />
+      <entry key="S30" value="12.134937311553692" />
+      <entry key="S60" value="14.589056721324408" />
+      <entry key="M2" value="19.216470244366644" />
+      <entry key="M5" value="26.135309757884297" />
+      <entry key="M10" value="38.17167195450588" />
+      <entry key="M15" value="52.081965496614714" />
+      <entry key="M30" value="82.87583553169537" />
+      <entry key="H1" value="110.75196127454439" />
+      <entry key="H2" value="129.6789783872164" />
+      <entry key="H4" value="140.73032388225022" />
+      <entry key="D1" value="150.86482369787427" />
+      <entry key="W1" value="152.69268781837593" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
-      <entry key="S2" value="3.490270258626289E-123" />
-      <entry key="S5" value="1.172169415474164E-49" />
-      <entry key="S10" value="4.380771424954239E-25" />
-      <entry key="S30" value="1.1731212582688755E-8" />
-      <entry key="S60" value="1.5262465325376062E-4" />
-      <entry key="M2" value="0.017455585902984384" />
-      <entry key="M5" value="0.300121643302249" />
-      <entry key="M10" value="0.7747256005070637" />
-      <entry key="M15" value="1.0627679206986085" />
-      <entry key="M30" value="1.4579158796429301" />
-      <entry key="H1" value="1.707578954161606" />
-      <entry key="H2" value="1.848014120122054" />
-      <entry key="H4" value="1.9225055981292511" />
-      <entry key="D1" value="1.986870651573004" />
-      <entry key="W1" value="1.9981190798901898" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="5.213041536147916E-136" />
+      <entry key="S10" value="2.9214670573142363E-68" />
+      <entry key="S30" value="4.757290857855352E-23" />
+      <entry key="S60" value="9.719257542142732E-12" />
+      <entry key="M2" value="4.404926138981709E-6" />
+      <entry key="M5" value="0.010916891543931122" />
+      <entry key="M10" value="0.1477572322084136" />
+      <entry key="M15" value="0.35213213798833104" />
+      <entry key="M30" value="0.8392011680444024" />
+      <entry key="H1" value="1.2955303757823657" />
+      <entry key="H2" value="1.6096768142999098" />
+      <entry key="H4" value="1.7942556181372633" />
+      <entry key="D1" value="1.9641397204115294" />
+      <entry key="W1" value="1.994837293753788" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.0819418646558352" />
-      <entry key="MS500" value="2.838229459993219" />
-      <entry key="S2" value="4.269093692601723" />
-      <entry key="S5" value="4.687464476021723" />
-      <entry key="S10" value="4.840137094864194" />
-      <entry key="S30" value="4.945896183261235" />
-      <entry key="S60" value="4.992795349975831" />
-      <entry key="M2" value="6.379261691235737" />
-      <entry key="M5" value="24.455606446680104" />
-      <entry key="M10" value="52.69971884914855" />
-      <entry key="M15" value="69.44653320730995" />
-      <entry key="M30" value="92.16073842675377" />
-      <entry key="H1" value="106.40197134893752" />
-      <entry key="H2" value="114.383151546856" />
-      <entry key="H4" value="118.6090102840508" />
-      <entry key="D1" value="122.256427232307" />
-      <entry key="W1" value="122.89348414183237" />
+      <entry key="MS100" value="1.0858442755651956" />
+      <entry key="MS500" value="4.275705725747998" />
+      <entry key="S2" value="8.843089955157179" />
+      <entry key="S5" value="10.576975797508332" />
+      <entry key="S10" value="11.258369911204127" />
+      <entry key="S30" value="12.130788374579932" />
+      <entry key="S60" value="14.586419437132822" />
+      <entry key="M2" value="19.213923713929276" />
+      <entry key="M5" value="26.14387098473237" />
+      <entry key="M10" value="38.31742614218256" />
+      <entry key="M15" value="52.43226787649678" />
+      <entry key="M30" value="83.71361872789892" />
+      <entry key="H1" value="112.04656274116722" />
+      <entry key="H2" value="131.28811694620927" />
+      <entry key="H4" value="142.52428892552913" />
+      <entry key="D1" value="152.82891171920065" />
+      <entry key="W1" value="154.68751764239425" />
     </decayedShown>
   </component>
   <component name="ProblemsViewState">
@@ -232,8 +230,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-PY-261.25134.203" />
-        <option value="bundled-python-sdk-245168a56dbd-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.25134.203" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-PY-261.26222.68" />
+        <option value="bundled-python-sdk-50341a9f1f9c-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.26222.68" />
       </set>
     </attachedChunks>
   </component>
@@ -298,7 +296,9 @@
       <workItem from="1782719802246" duration="414000" />
       <workItem from="1782806015368" duration="1147000" />
       <workItem from="1783283198768" duration="621000" />
-      <workItem from="1783543826457" duration="2415000" />
+      <workItem from="1783543826457" duration="2835000" />
+      <workItem from="1783796535380" duration="156000" />
+      <workItem from="1783796726186" duration="1327000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -532,7 +532,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776792655793</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Add caching and pagination for room and review endpoints with custom implementations">
+      <option name="closed" value="true" />
+      <created>1783546645064</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1783546645064</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -550,7 +558,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="cutomers" />
     <MESSAGE value="add customers" />
     <MESSAGE value="add rooms" />
     <MESSAGE value="delete reservations_activity" />
@@ -575,7 +582,8 @@
     <MESSAGE value="Add customer profile management and enhance reservation handling" />
     <MESSAGE value="Add CI/CD pipeline configuration for Django with testing and security checks" />
     <MESSAGE value="Add workspace configuration, local settings, and documentation for project architecture and workflows" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add workspace configuration, local settings, and documentation for project architecture and workflows" />
+    <MESSAGE value="Add caching and pagination for room and review endpoints with custom implementations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add caching and pagination for room and review endpoints with custom implementations" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
