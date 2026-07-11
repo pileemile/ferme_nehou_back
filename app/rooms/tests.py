@@ -75,10 +75,10 @@ class RoomEndpointsTests(TestCase):
 
         self.assertEqual(response.status_code, 200)
         payload = response.json()
-        self.assertEqual(payload["count"], 1)
-        self.assertEqual(payload["nights"], 3)
-        self.assertEqual(payload["rooms"][0]["id"], self.room_free.id)
-        self.assertEqual(payload["rooms"][0]["total_price"], 300.0)
+        self.assertEqual(payload["pagination"]["total_items"], 1)
+        self.assertEqual(payload["results"][0]["nights"], 3)
+        self.assertEqual(payload["results"][0]["id"], self.room_free.id)
+        self.assertEqual(payload["results"][0]["total_price"], 300.0)
 
     def test_availability_reports_conflicts(self):
         response = self.api_get(
@@ -98,10 +98,10 @@ class RoomEndpointsTests(TestCase):
 
         self.assertEqual(response.status_code, 200)
         payload = response.json()
-        self.assertEqual(payload["count"], 1)
-        self.assertEqual(payload["rooms"][0]["id"], self.room_free.id)
-        self.assertEqual(payload["rooms"][0]["nights"], 3)
-        self.assertEqual(payload["rooms"][0]["total_price"], 300.0)
+        self.assertEqual(payload["pagination"]["total_items"], 1)
+        self.assertEqual(payload["results"][0]["id"], self.room_free.id)
+        self.assertEqual(payload["results"][0]["nights"], 3)
+        self.assertEqual(payload["results"][0]["total_price"], 300.0)
 
     def test_calendar_rejects_invalid_months(self):
         response = self.api_get(f"/api/rooms/rooms/{self.room_booked.id}/calendar/?months=abc")

@@ -20,6 +20,18 @@ class AmenitySerializer(serializers.ModelSerializer):
         ]
 
 
+class ReviewInlineSerializer(serializers.Serializer):
+  """Serializer léger pour afficher les avis dans une chambre"""
+  id = serializers.IntegerField()
+  client_name = serializers.SerializerMethodField()
+  rating = serializers.IntegerField()
+  comment = serializers.CharField()
+  created_at = serializers.DateTimeField()
+
+  def get_client_name(self, obj):
+    return f"{obj.client.first_name} {obj.client.last_name}"
+
+
 class SerializerRooms(serializers.ModelSerializer):
     amenities = AmenitySerializer(many=True, read_only=True)
     photos = SerializerPhoto(many=True, read_only=True)
@@ -73,3 +85,20 @@ class SerializerRooms(serializers.ModelSerializer):
     def validate_description(self, value):
         allowed_tags = ['p', 'br', 'strong', 'em', 'ul', 'ol', 'li']
         return bleach.clean(value.strip(), tags=allowed_tags)
+
+
+class SerializerRoomsDetail(SerializerRooms):
+  """
+  Serializer détaillé pour GET /api/rooms/{id}/
+  Inclut les avis récents en plus
+  """
+  recent_reviews = serializers.SerializerMethodField()
+
+  class Meta(SerializerRooms.Meta):
+    fields = SerializerRooms.Meta.fields + ['recent_reviews']
+
+  def get_recent_reviews(self, obj):
+    """Retourner les 5 derniers avis"""
+    from app.reviews.models import Review
+    reviews = Review.objects.filter(room=obj).select_related('client').order_by('-created_at')[:5]
+    return ReviewInlineSerializer(reviews, many=True).data

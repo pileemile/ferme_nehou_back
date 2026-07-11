@@ -30,7 +30,12 @@ class ReservationViewSet(
     serializer_class = ReservationSerializer
 
     def get_queryset(self):
-        queryset = Reservation.objects.select_related("client", "room")
+        """
+        Optimisé avec select_related/prefetch_related pour éviter les requêtes N+1.
+        """
+        queryset = Reservation.objects.select_related("client", "room").prefetch_related(
+            "activities__activity"
+        )
         if self.request.user.is_staff:
             return queryset
 

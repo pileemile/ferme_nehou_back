@@ -10,4 +10,5 @@ urlpatterns = [
     path('photo/', include('app.photo.urls')),
     path('authentification/', include('app.authentification.urls')),
     path('notifications/', include('app.notifications.urls')),
+    path('admin/stats/', include('app.stats.urls')),
 ]

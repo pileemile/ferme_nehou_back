@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d8029c-d282-4b95-bfd1-eba5debcf98b" name="Changes" comment="Add CI/CD pipeline configuration for Django with testing and security checks" />
+    <list default="true" id="70d8029c-d282-4b95-bfd1-eba5debcf98b" name="Changes" comment="Add caching and pagination for room and review endpoints with custom implementations">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/activity/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/activity/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/reservation/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/reservation/views.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,6 +16,7 @@
   </component>
   <component name="CopilotPersistence">
     <persistenceIdMap>
+      <entry key="_/home/picardemile/Documents/fermeDeNehou/ferme_de_nehou_back/ferme_nehou_back" value="3Eys260PHIqKYbbvzsfMBkzj9WN" />
       <entry key="_C:/Users/emile/Desktop/projet_ferme_nehou/ferme_nehou_back" value="3CBNFOHQ8Y6fEuHC591J2i8BxG6" />
       <entry key="_C:/Users/emile/Desktop/projet_ferme_nehou/projet_ferme_nehou_back" value="34yE7ECkuzuIS6wFhN03WnDC4je" />
     </persistenceIdMap>
@@ -23,7 +28,7 @@
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="132" />
+    <option name="cachedIndexableFilesCount" value="144" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -66,6 +71,65 @@
     <commands />
     <urls />
   </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.1928665623770458" />
+      <entry key="MS500" value="4.376248278393355" />
+      <entry key="S2" value="8.89126499208335" />
+      <entry key="S5" value="10.599282774685323" />
+      <entry key="S10" value="11.27009676577782" />
+      <entry key="S30" value="12.134937311553692" />
+      <entry key="S60" value="14.589056721324408" />
+      <entry key="M2" value="19.216470244366644" />
+      <entry key="M5" value="26.135309757884297" />
+      <entry key="M10" value="38.17167195450588" />
+      <entry key="M15" value="52.081965496614714" />
+      <entry key="M30" value="82.87583553169537" />
+      <entry key="H1" value="110.75196127454439" />
+      <entry key="H2" value="129.6789783872164" />
+      <entry key="H4" value="140.73032388225022" />
+      <entry key="D1" value="150.86482369787427" />
+      <entry key="W1" value="152.69268781837593" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="5.213041536147916E-136" />
+      <entry key="S10" value="2.9214670573142363E-68" />
+      <entry key="S30" value="4.757290857855352E-23" />
+      <entry key="S60" value="9.719257542142732E-12" />
+      <entry key="M2" value="4.404926138981709E-6" />
+      <entry key="M5" value="0.010916891543931122" />
+      <entry key="M10" value="0.1477572322084136" />
+      <entry key="M15" value="0.35213213798833104" />
+      <entry key="M30" value="0.8392011680444024" />
+      <entry key="H1" value="1.2955303757823657" />
+      <entry key="H2" value="1.6096768142999098" />
+      <entry key="H4" value="1.7942556181372633" />
+      <entry key="D1" value="1.9641397204115294" />
+      <entry key="W1" value="1.994837293753788" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="1.0858442755651956" />
+      <entry key="MS500" value="4.275705725747998" />
+      <entry key="S2" value="8.843089955157179" />
+      <entry key="S5" value="10.576975797508332" />
+      <entry key="S10" value="11.258369911204127" />
+      <entry key="S30" value="12.130788374579932" />
+      <entry key="S60" value="14.586419437132822" />
+      <entry key="M2" value="19.213923713929276" />
+      <entry key="M5" value="26.14387098473237" />
+      <entry key="M10" value="38.31742614218256" />
+      <entry key="M15" value="52.43226787649678" />
+      <entry key="M30" value="83.71361872789892" />
+      <entry key="H1" value="112.04656274116722" />
+      <entry key="H2" value="131.28811694620927" />
+      <entry key="H4" value="142.52428892552913" />
+      <entry key="D1" value="152.82891171920065" />
+      <entry key="W1" value="154.68751764239425" />
+    </decayedShown>
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
   </component>
@@ -73,43 +137,59 @@
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="34yE7ECkuzuIS6wFhN03WnDC4je" />
+  <component name="ProjectSessionTemplates">
+    <option name="panelTemplate">
+      <template>
+        <option name="modeId" value="Agent" />
+        <option name="model">
+          <model>
+            <option name="modelType" value="builtin_id" />
+            <option name="modelValue" value="auto" />
+          </model>
+        </option>
+        <option name="targetType" value="BACKGROUND" />
+        <option name="worktreeMode" value="WORKSPACE" />
+      </template>
+    </option>
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "ai.playground.ignore.import.keys.banner.in.settings": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "dev",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "C:/Users/emile/Desktop/projet_ferme_nehou/projet_ferme_nehou_back/media/room_photos/chambre-1",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;ai.playground.ignore.import.keys.banner.in.settings&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;copilot.chat.legacySessionMetadata.migrated&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/emile/Desktop/projet_ferme_nehou/projet_ferme_nehou_back/media/room_photos/chambre-1&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecapSpentCounter">
     <option name="endsOfQuotaMs" value="1776150073784" />
     <option name="spentUsd" value="0.0029185" />
@@ -150,8 +230,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-3bd3a6803838-JavaScript-PY-261.22158.340" />
-        <option value="bundled-python-sdk-b63d5a1f7c97-b61e75351b1f-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.22158.340" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-PY-261.26222.68" />
+        <option value="bundled-python-sdk-50341a9f1f9c-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.26222.68" />
       </set>
     </attachedChunks>
   </component>
@@ -208,6 +288,17 @@
       <workItem from="1776184313744" duration="6975000" />
       <workItem from="1776605186566" duration="2012000" />
       <workItem from="1776607885097" duration="5054000" />
+      <workItem from="1776706941275" duration="699000" />
+      <workItem from="1776790743036" duration="51000" />
+      <workItem from="1776791046426" duration="3539000" />
+      <workItem from="1781161937825" duration="2119000" />
+      <workItem from="1782718921490" duration="829000" />
+      <workItem from="1782719802246" duration="414000" />
+      <workItem from="1782806015368" duration="1147000" />
+      <workItem from="1783283198768" duration="621000" />
+      <workItem from="1783543826457" duration="2835000" />
+      <workItem from="1783796535380" duration="156000" />
+      <workItem from="1783796726186" duration="1327000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -425,7 +516,31 @@
       <option name="project" value="LOCAL" />
       <updated>1776630701447</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Add CI/CD pipeline configuration for Django with testing and security checks">
+      <option name="closed" value="true" />
+      <created>1776630847897</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1776630847897</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Add workspace configuration, local settings, and documentation for project architecture and workflows">
+      <option name="closed" value="true" />
+      <created>1776792655793</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1776792655793</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Add caching and pagination for room and review endpoints with custom implementations">
+      <option name="closed" value="true" />
+      <created>1783546645064</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1783546645064</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -443,8 +558,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="initial commit" />
-    <MESSAGE value="cutomers" />
     <MESSAGE value="add customers" />
     <MESSAGE value="add rooms" />
     <MESSAGE value="delete reservations_activity" />
@@ -468,7 +581,9 @@
     <MESSAGE value="Integrate notification system and async tasks for reservation confirmations and cancellations" />
     <MESSAGE value="Add customer profile management and enhance reservation handling" />
     <MESSAGE value="Add CI/CD pipeline configuration for Django with testing and security checks" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add CI/CD pipeline configuration for Django with testing and security checks" />
+    <MESSAGE value="Add workspace configuration, local settings, and documentation for project architecture and workflows" />
+    <MESSAGE value="Add caching and pagination for room and review endpoints with custom implementations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add caching and pagination for room and review endpoints with custom implementations" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>

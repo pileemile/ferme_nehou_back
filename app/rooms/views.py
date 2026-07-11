@@ -1,6 +1,8 @@
 from datetime import datetime, timedelta
 
-from django.db.models import Avg, Count
+from django.conf import settings
+from django.core.cache import cache
+from django.db.models import Avg, Count, Prefetch
 from django.utils.decorators import method_decorator
 from django.utils import timezone
 from django_filters.rest_framework import DjangoFilterBackend
@@ -10,14 +12,15 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
 
+from app.cache import invalidate_room_cache, make_cache_key
+from app.pagination import CustomPageNumberPagination, SmallResultsSetPagination
 from app.permissions import IsAdminUser
 from app.reservation.models import Reservation
 from app.reviews.models import Review
 from app.reviews.serializers import SerializerReviews
 from app.rooms.filter import RoomFilter
 from app.rooms.models import RoomModel
-from app.rooms.serializers import AmenitySerializer, SerializerRooms
-
+from app.rooms.serializers import AmenitySerializer, SerializerRooms, SerializerRoomsDetail
 
 class RoomViewSet(
     GenericViewSet,
@@ -30,25 +33,84 @@ class RoomViewSet(
     serializer_class = SerializerRooms
     filter_backends = [DjangoFilterBackend]
     filterset_class = RoomFilter
+    pagination_class = CustomPageNumberPagination
 
     def get_permissions(self):
         public_actions = {
             "list",
             "retrieve",
             "search",
-            "available",  # ← AJOUTÉ
+            "available",
             "availability",
             "calendar",
             "average_rating",
             "reviews",
             "amenities",
+            "featured",
         }
         if self.action in public_actions:
             return []
         return [IsAdminUser()]
 
     def get_queryset(self):
-        return RoomModel.objects.all().prefetch_related("amenities", "photos")
+        return RoomModel.objects.all().prefetch_related(
+            Prefetch("amenities"),
+            Prefetch("photos"),
+            Prefetch(
+                "reviews",
+                queryset=Review.objects.select_related("client").order_by("-created_at"),
+            ),
+        )
+
+    def list(self, request, *args, **kwargs):
+        """
+        GET /api/rooms/?page=1&page_size=10
+        Liste des chambres mise en cache selon les paramètres de requête.
+        """
+        cache_key = make_cache_key("rooms_list", dict(request.query_params))
+        cached_data = cache.get(cache_key)
+
+        if cached_data is not None:
+            return Response(cached_data)
+
+        response = super().list(request, *args, **kwargs)
+
+        if response.status_code == 200:
+            cache.set(cache_key, response.data, settings.CACHE_TTL_ROOMS)
+
+        return response
+
+    def retrieve(self, request, *args, **kwargs):
+        """
+        GET /api/rooms/{id}/
+        Détail complet d'une chambre mis en cache par ID.
+        """
+        room_id = kwargs.get("pk")
+        cache_key = f"room_detail_{room_id}"
+        cached_data = cache.get(cache_key)
+
+        if cached_data is not None:
+            return Response(cached_data)
+
+        instance = self.get_object()
+        serializer = SerializerRoomsDetail(instance, context={"request": request})
+        data = serializer.data
+
+        cache.set(cache_key, data, settings.CACHE_TTL_ROOMS)
+        return Response(data)
+
+    def perform_create(self, serializer):
+        super().perform_create(serializer)
+        invalidate_room_cache()
+
+    def perform_update(self, serializer):
+        super().perform_update(serializer)
+        invalidate_room_cache(room_id=serializer.instance.id)
+
+    def perform_destroy(self, instance):
+        room_id = instance.id
+        super().perform_destroy(instance)
+        invalidate_room_cache(room_id=room_id)
 
     @method_decorator(ratelimit(key="ip", rate="100/h", method="GET", block=True))
     @action(detail=False, methods=["get"])
@@ -124,6 +186,18 @@ class RoomViewSet(
         nights = (check_out_date - check_in_date).days
 
         # Sérialiser
+        page = self.paginate_queryset(available_rooms)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            results = []
+            for room_data in serializer.data:
+                room_data["nights"] = nights
+                room_data["total_price"] = float(room_data["price_per_night"]) * nights
+                room_data["check_in"] = check_in
+                room_data["check_out"] = check_out
+                results.append(room_data)
+            return self.get_paginated_response(results)
+
         serializer = self.get_serializer(available_rooms, many=True)
 
         # Ajouter infos supplémentaires à chaque chambre
@@ -242,6 +316,23 @@ class RoomViewSet(
         max_price = request.query_params.get("max_price")
         amenities = request.query_params.get("amenities")  # ← NOUVEAU
 
+        cache_key = None
+        if not check_in and not check_out:
+            cache_key = make_cache_key(
+                "rooms_search",
+                {
+                    "guests": guests,
+                    "min_price": min_price,
+                    "max_price": max_price,
+                    "amenities": amenities,
+                    "page": request.query_params.get("page"),
+                    "page_size": request.query_params.get("page_size"),
+                },
+            )
+            cached_data = cache.get(cache_key)
+            if cached_data is not None:
+                return Response(cached_data)
+
         queryset = self.get_queryset()
 
         # Filtrer par capacité
@@ -297,30 +388,48 @@ class RoomViewSet(
                     status=status.HTTP_400_BAD_REQUEST,
                 )
 
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            results = []
+            for room_data in serializer.data:
+                if nights:
+                    room_data["nights"] = nights
+                    room_data["total_price"] = float(room_data["price_per_night"]) * nights
+                results.append(room_data)
+
+            response = self.get_paginated_response(results)
+            if cache_key and response.status_code == 200:
+                cache.set(cache_key, response.data, settings.CACHE_TTL_ROOMS)
+            return response
+
         serializer = self.get_serializer(queryset, many=True)
 
-        # Ajouter le prix total si dates fournies
-        results = []
-        for room_data in serializer.data:
-            if nights:
+        data = {
+            "filters": {
+                "check_in": check_in,
+                "check_out": check_out,
+                "guests": guests,
+                "min_price": min_price,
+                "max_price": max_price,
+                "amenities": amenities,
+            },
+            "count": queryset.count(),
+            "rooms": serializer.data,
+        }
+
+        if nights:
+            rooms = []
+            for room_data in data["rooms"]:
                 room_data["nights"] = nights
                 room_data["total_price"] = float(room_data["price_per_night"]) * nights
-            results.append(room_data)
+                rooms.append(room_data)
+            data["rooms"] = rooms
 
-        return Response(
-            {
-                "filters": {
-                    "check_in": check_in,
-                    "check_out": check_out,
-                    "guests": guests,
-                    "min_price": min_price,
-                    "max_price": max_price,
-                    "amenities": amenities,
-                },
-                "count": len(results),
-                "rooms": results,
-            }
-        )
+        if cache_key:
+            cache.set(cache_key, data, settings.CACHE_TTL_ROOMS)
+
+        return Response(data)
 
     # ========================================
     # AMÉLIORATION: Endpoint calendar
@@ -441,7 +550,18 @@ class RoomViewSet(
     def reviews(self, request, pk=None):
         """Obtenir tous les avis d'une chambre"""
         room = self.get_object()
-        reviews = Review.objects.filter(room=room).select_related("client", "reservation")
+        reviews = Review.objects.filter(room=room).select_related(
+            "client",
+            "reservation",
+        ).order_by("-created_at")
+
+        self.pagination_class = SmallResultsSetPagination
+        page = self.paginate_queryset(reviews)
+
+        if page is not None:
+            serializer = SerializerReviews(page, many=True, context={"request": request})
+            return self.get_paginated_response(serializer.data)
+
         serializer = SerializerReviews(reviews, many=True, context={"request": request})
         return Response(
             {
@@ -465,3 +585,52 @@ class RoomViewSet(
                 "amenities": serializer.data,
             }
         )
+
+    @action(detail=False, methods=['get'])
+    def featured(self, request):
+        """
+        GET /api/rooms/featured/?limit=3
+        Chambres mises en avant mises en cache.
+        """
+        try:
+            limit = int(request.query_params.get("limit", 3))
+        except (TypeError, ValueError):
+            limit = 3
+        if limit > 10:
+            limit = 10
+        if limit < 1:
+            limit = 1
+
+        cache_key = f"rooms_featured_{limit}"
+        cached_data = cache.get(cache_key)
+
+        if cached_data is not None:
+            return Response(cached_data)
+
+        photo_model = RoomModel._meta.get_field("photos").related_model
+        featured_rooms = RoomModel.objects.filter(
+            available=True
+        ).annotate(
+            avg_rating=Avg("reviews__rating"),
+            reviews_count=Count("reviews"),
+        ).prefetch_related(
+            "amenities",
+            Prefetch("photos", queryset=photo_model.objects.order_by("order")),
+            Prefetch(
+                "reviews",
+                queryset=Review.objects.select_related("client").order_by("-created_at"),
+            ),
+        ).order_by(
+            "-avg_rating",
+            "-reviews_count",
+        )[:limit]
+
+        serializer = SerializerRoomsDetail(
+            featured_rooms,
+            many=True,
+            context={"request": request},
+        )
+        data = {"count": len(serializer.data), "featured_rooms": serializer.data}
+
+        cache.set(cache_key, data, settings.CACHE_TTL_FEATURED)
+        return Response(data)

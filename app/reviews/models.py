@@ -9,7 +9,7 @@ from app.rooms.models import RoomModel
 
 class Review(models.Model):
     client = models.ForeignKey(CustomerModel, on_delete=models.CASCADE)
-    room = models.ForeignKey(RoomModel, on_delete=models.CASCADE)
+    room = models.ForeignKey(RoomModel, on_delete=models.CASCADE, related_name='reviews')
     reservation = models.OneToOneField('reservation.Reservation', on_delete=models.CASCADE, related_name='review', null=True, blank=True)
     rating = models.IntegerField(
         validators=[MinValueValidator(1), MaxValueValidator(5)],

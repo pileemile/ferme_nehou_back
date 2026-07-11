@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     "app.photo.apps.PhotoConfig",
     "app.authentification.apps.AuthentificationConfig",
     "app.notifications",
+    'app.stats',
 ]
 
 AUTH_USER_MODEL = "authentification.User"
@@ -118,8 +119,11 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
-    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
-    "DEFAULT_FILTER_BACKENDS": ["django_filters.rest_framework.DjangoFilterBackend"],
+  "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+  "DEFAULT_FILTER_BACKENDS": ["django_filters.rest_framework.DjangoFilterBackend"],
+  'DEFAULT_PAGINATION_CLASS': 'app.pagination.CustomPageNumberPagination',
+  'PAGE_SIZE': 10,
+
 }
 
 SPECTACULAR_SETTINGS = {
@@ -146,20 +150,30 @@ SIMPLE_JWT = {
 RATELIMIT_ENABLE = True
 RATELIMIT_USE_CACHE = "default"
 
-if env("REDIS_URL", default=""):
-    CACHES = {
-        "default": {
-            "BACKEND": "django.core.cache.backends.redis.RedisCache",
-            "LOCATION": env("REDIS_URL"),
-        }
+# =====================================
+# CACHE REDIS
+# =====================================
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": env("REDIS_URL", default="redis://127.0.0.1:6379/1"),
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            "CONNECTION_POOL_KWARGS": {
+                "max_connections": 50,
+            },
+        },
+        "KEY_PREFIX": "ferme_nehou",
+        "TIMEOUT": env.int("CACHE_TTL", default=300),
     }
-else:
-    CACHES = {
-        "default": {
-            "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
-            "LOCATION": "unique-snowflake",
-        }
-    }
+}
+
+# Durees de cache par type de donnee
+CACHE_TTL_ROOMS = 60 * 10
+CACHE_TTL_ACTIVITIES = 60 * 30
+CACHE_TTL_REVIEWS = 60 * 5
+CACHE_TTL_STATS = 60 * 15
+CACHE_TTL_FEATURED = 60 * 10
 
 if not DEBUG:
     SECURE_SSL_REDIRECT = True
